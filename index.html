@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, user-scalable=no, initial-scale=1.0">
+  <title>Undangan Pernikahan - Clara & Peter</title>
+  <style>
+    @font-face {
+      font-family: 'Hangyaboly';
+      src: url('fonts/hangyaboly.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px 0;
+      font-family: 'Hangyaboly', cursive, sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* Container mobile 390px */
+    .mobile-frame {
+      width: 390px;
+      height: 605.8px; /* 390 * (2122 / 1366) = 605.8px */
+      background-color: #fff9e3;
+      position: relative;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* Background grafis cover (bingkai pita, ilustrasi kartun mempelai, bintang-bintang) */
+    .cover-art {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/cover_bg.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+
+    /* Section Cover Container */
+    .cover-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #bb2c3e;
+      z-index: 2;
+    }
+
+    /* Judul atas: "these kids decided on forever" */
+    .title-wrapper {
+      position: absolute;
+      top: 17.5%; /* Y = 371px / 2122px */
+      width: 100%;
+      left: 0;
+      padding: 0 16px;
+    }
+
+    .title-line {
+      font-size: 32px;
+      line-height: 1.18;
+      color: #bb2c3e;
+      letter-spacing: 0.2px;
+      font-weight: normal;
+    }
+
+    /* Nama Pasangan: "Clara & Peter" */
+    .names-wrapper {
+      position: absolute;
+      top: 77.2%; /* Y = 1638px / 2122px */
+      width: 100%;
+      left: 0;
+    }
+
+    .names-text {
+      font-size: 21px;
+      line-height: 1;
+      color: #bb2c3e;
+      letter-spacing: 0.5px;
+      font-weight: normal;
+    }
+
+    /* Tombol: "Open Invitation" */
+    .btn-wrapper {
+      position: absolute;
+      top: 83.22%; /* Y = 1766px / 2122px */
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .btn-open {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 108.7px; /* 381 / 1366 * 390px */
+      height: 26.2px;  /* 92 / 2122 * 605.8px */
+      background-color: #a63232;
+      color: #ffffff;
+      font-family: 'Hangyaboly', cursive, sans-serif;
+      font-size: 14.5px;
+      text-decoration: none;
+      border: none;
+      border-radius: 6.5px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(166, 50, 50, 0.35);
+      transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+      letter-spacing: 0.2px;
+      padding-top: 1px;
+    }
+
+    .btn-open:hover {
+      background-color: #bb2c3e;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(187, 44, 62, 0.45);
+    }
+
+    .btn-open:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile View Container (390px) -->
+  <main class="mobile-frame" id="cover">
+    <!-- Visual Canva Cover (bingkai, ilustrasi pengantin, bintang/sparkles) -->
+    <div class="cover-art" aria-hidden="true"></div>
+
+    <!-- Teks & Elemen Interaktif -->
+    <section class="cover-section">
+      <div class="title-wrapper">
+        <h1 class="title-line">these kids decided<br>on forever</h1>
+      </div>
+
+      <div class="names-wrapper">
+        <h2 class="names-text">Clara & Peter</h2>
+      </div>
+
+      <div class="btn-wrapper">
+        <button type="button" class="btn-open" onclick="handleOpenInvitation()">
+          Open Invitation
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function handleOpenInvitation() {
+      // Event saat tombol Open Invitation diklik
+      console.log('Undangan dibuka!');
+    }
+  </script>
+</body>
+</html>

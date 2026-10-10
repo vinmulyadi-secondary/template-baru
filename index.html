@@ -31,8 +31,9 @@
 
     /*
       Viewport Wrapper:
-      - Di desktop: kartu diposisikan di tengah dengan background luar gelap #1e1e1e.
-      - Di HP (Mobile): background senada #fff9e3 dan memenuhi viewport.
+      - Selalu menempatkan undangan persis di tengah (center horizontal & vertical)
+      - Di mobile (layar HP): latar belakang senada #fff9e3 dan memenuhi viewport dinamis (100dvh)
+      - Di desktop/layar lebar: latar luar gelap #1e1e1e agar kartu undangan menonjol
     */
     .viewport-wrapper {
       width: 100%;
@@ -40,39 +41,38 @@
       min-height: 100dvh;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       background-color: #1e1e1e;
       padding: 0;
     }
 
     /*
-      Frame Utama Undangan (Fit layar HP sesuai Gambar 2 referensi):
-      - Di mobile: Lebar memenuhi 100vw penuh!
-      - Tinggi dihitung otomatis berdasarkan aspect-ratio 1366 x 2122 (calc(100vw * 2122 / 1366))
-      - Di desktop: Tetap dibatasi maksimal 390px mobile-sized.
+      Frame Utama Undangan (Ukuran versi centered sebelumnya):
+      - Rasio asli Canva: 1366 x 2122 (lebar : tinggi)
+      - Dibuat pas di layar iPhone / HP agar centered vertikal & horizontal tanpa terpotong
+      - Lebar acuan: max 390px, tinggi proporsional dan dibatasi max 94dvh
     */
     .mobile-frame {
       position: relative;
-      width: 100vw;
-      max-width: 430px;
-      height: calc(100vw * (2122 / 1366));
-      max-height: calc(430px * (2122 / 1366));
+      width: min(390px, 92vw, calc(94dvh * (1366 / 2122)));
+      aspect-ratio: 1366 / 2122;
       background-color: #fff9e3;
       overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
       flex-shrink: 0;
-      margin: 0 auto;
+      margin: auto;
     }
 
-    @media (min-width: 481px) {
+    /* Khusus tampilan mobile / smartphone */
+    @media (max-width: 480px) {
       .viewport-wrapper {
-        align-items: center;
-        padding: 24px 0;
+        background-color: #fff9e3;
+        align-items: center; /* Centered vertikal di layar HP */
       }
       .mobile-frame {
-        width: 390px;
-        height: 606px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
-        border-radius: 12px;
+        box-shadow: none;
+        width: min(100vw, calc(94dvh * (1366 / 2122)));
+        max-width: 430px;
       }
     }
 
@@ -233,7 +233,7 @@
       text-align: center;
     }
 
-    /* Judul atas: "these kids decided on forever" (Top: 17.48%) */
+    /* Judul atas: "these kids decided on forever" (Top: ~17.5%) */
     .title-wrapper {
       position: absolute;
       top: 17.48%;
@@ -244,14 +244,15 @@
 
     .title-line {
       font-family: 'Hangyaboly', cursive, sans-serif;
-      font-size: clamp(23px, 8.2vw, 35px);
+      font-size: clamp(20px, 8.2cqi, 32px);
+      font-size: clamp(20px, calc(32px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390)), 32px);
       line-height: 1.18;
       color: #bb2c3e;
       letter-spacing: 0.2px;
       font-weight: normal;
     }
 
-    /* Nama Mempelai: "Clara & Peter" (Top: 77.19%) */
+    /* Nama Mempelai: "Clara & Peter" (Top: ~77.2%) */
     .names-wrapper {
       position: absolute;
       top: 77.19%;
@@ -261,14 +262,14 @@
 
     .names-text {
       font-family: 'Hangyaboly', cursive, sans-serif;
-      font-size: clamp(15.5px, 5.4vw, 23px);
+      font-size: clamp(14px, calc(21px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390)), 21px);
       line-height: 1;
       color: #bb2c3e;
       letter-spacing: 0.5px;
       font-weight: normal;
     }
 
-    /* Tombol Interaktif "Open Invitation" (Top: 83.22%) */
+    /* Tombol Interaktif "Open Invitation" (Top: ~83.2%) */
     .btn-wrapper {
       position: absolute;
       top: 83.22%;
@@ -280,12 +281,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: clamp(94px, 27.89vw, 118px);
-      height: clamp(23px, 6.7vw, 29px);
+      width: calc(108.7px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390));
+      height: calc(26.2px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390));
+      min-width: 85px;
+      min-height: 22px;
       background-color: #a63232;
       color: #ffffff;
       font-family: 'Hangyaboly', cursive, sans-serif;
-      font-size: clamp(12px, 3.7vw, 15.5px);
+      font-size: clamp(10.5px, calc(14.5px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390)), 14.5px);
       text-decoration: none;
       border: none;
       border-radius: 6.5px;

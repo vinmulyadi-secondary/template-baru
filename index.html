@@ -31,9 +31,8 @@
 
     /*
       Viewport Wrapper:
-      - Selalu menempatkan undangan persis di tengah (center horizontal & vertical)
-      - Di mobile (layar HP): latar belakang senada #fff9e3 dan memenuhi viewport dinamis (100dvh)
-      - Di desktop/layar lebar: latar luar gelap #1e1e1e agar kartu undangan menonjol
+      - Di desktop: kartu diposisikan di tengah dengan background luar gelap #1e1e1e.
+      - Di HP (Mobile): background senada #fff9e3 dan memenuhi viewport.
     */
     .viewport-wrapper {
       width: 100%;
@@ -41,51 +40,50 @@
       min-height: 100dvh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       background-color: #1e1e1e;
       padding: 0;
     }
 
     /*
-      Frame Utama Undangan:
-      - Rasio asli Canva: 1366 x 2122 (lebar : tinggi)
-      - Dibuat pas di layar iPhone / HP agar centered vertikal & horizontal tanpa terpotong
-      - Lebar acuan: max 390px, tetapi jika tinggi layar HP terbatas (seperti ada navigation bar Safari),
-        tinggi dibatasi max 96dvh sehingga kartu tetap berada tepat di tengah layar tanpa terdorong ke atas!
+      Frame Utama Undangan (Fit layar HP sesuai Gambar 2 referensi):
+      - Di mobile: Lebar memenuhi 100vw penuh!
+      - Tinggi dihitung otomatis berdasarkan aspect-ratio 1366 x 2122 (calc(100vw * 2122 / 1366))
+      - Di desktop: Tetap dibatasi maksimal 390px mobile-sized.
     */
     .mobile-frame {
       position: relative;
-      width: min(390px, 92vw, calc(94dvh * (1366 / 2122)));
-      aspect-ratio: 1366 / 2122;
+      width: 100vw;
+      max-width: 430px;
+      height: calc(100vw * (2122 / 1366));
+      max-height: calc(430px * (2122 / 1366));
       background-color: #fff9e3;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
       flex-shrink: 0;
-      margin: auto;
+      margin: 0 auto;
     }
 
-    /* Khusus tampilan mobile / smartphone */
-    @media (max-width: 480px) {
+    @media (min-width: 481px) {
       .viewport-wrapper {
-        background-color: #fff9e3;
-        align-items: center; /* Centered vertikal di layar HP */
+        align-items: center;
+        padding: 24px 0;
       }
       .mobile-frame {
-        box-shadow: none;
-        /* Di HP, berikan ukuran proporsional yang pas di tengah viewport */
-        width: min(100vw, calc(94dvh * (1366 / 2122)));
-        max-width: 430px;
+        width: 390px;
+        height: 606px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+        border-radius: 12px;
       }
     }
 
-    /* Background Grafis Cover Canva (Bingkai Pita, Mempelai, Sparkles) */
+    /* Artwork Background (Bingkai dan Pengantin tanpa bintang statis) */
     .cover-art {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('./assets/cover_bg.png');
+      background-image: url('./assets/cover_bg_nostars.png');
       background-size: 100% 100%;
       background-position: center;
       background-repeat: no-repeat;
@@ -93,26 +91,149 @@
       z-index: 1;
     }
 
-    /* Konten Teks dan Interaksi */
+    /* ========================================================
+       ANIMASI WIGGLE LOOPING BINTANG & SPARKLES
+       ======================================================== */
+    @keyframes starWiggle1 {
+      0%, 100% {
+        transform: rotate(0deg) scale(1);
+      }
+      20% {
+        transform: rotate(-6deg) scale(1.06);
+      }
+      45% {
+        transform: rotate(5deg) scale(0.96);
+      }
+      70% {
+        transform: rotate(-4deg) scale(1.04);
+      }
+      85% {
+        transform: rotate(3deg) scale(0.98);
+      }
+    }
+
+    @keyframes starWiggle2 {
+      0%, 100% {
+        transform: rotate(0deg) scale(1);
+      }
+      25% {
+        transform: rotate(7deg) scale(1.07);
+      }
+      50% {
+        transform: rotate(-5deg) scale(0.95);
+      }
+      75% {
+        transform: rotate(4deg) scale(1.05);
+      }
+      90% {
+        transform: rotate(-3deg) scale(0.99);
+      }
+    }
+
+    @keyframes starWiggle3 {
+      0%, 100% {
+        transform: rotate(0deg) scale(1);
+      }
+      30% {
+        transform: rotate(-7deg) scale(1.08);
+      }
+      55% {
+        transform: rotate(6deg) scale(0.94);
+      }
+      80% {
+        transform: rotate(-4deg) scale(1.04);
+      }
+    }
+
+    @keyframes starWiggle4 {
+      0%, 100% {
+        transform: rotate(0deg) scale(1);
+      }
+      20% {
+        transform: rotate(6deg) scale(1.05);
+      }
+      45% {
+        transform: rotate(-6deg) scale(0.96);
+      }
+      70% {
+        transform: rotate(5deg) scale(1.06);
+      }
+      85% {
+        transform: rotate(-2deg) scale(0.98);
+      }
+    }
+
+    .star-cluster {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .star-cluster img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* 1. Bintang & Bunga Kiri Atas */
+    .star-top-left {
+      top: 34.87%;    /* 740 / 2122 */
+      left: 17.57%;   /* 240 / 1366 */
+      width: 13.91%;  /* 190 / 1366 */
+      height: 10.37%; /* 220 / 2122 */
+      animation: starWiggle1 2.8s ease-in-out infinite;
+    }
+
+    /* 2. Sparkles Kanan Atas */
+    .star-top-right {
+      top: 41.00%;    /* 870 / 2122 */
+      left: 71.74%;   /* 980 / 1366 */
+      width: 13.18%;  /* 180 / 1366 */
+      height: 11.78%; /* 250 / 2122 */
+      animation: starWiggle2 3.2s ease-in-out infinite;
+      animation-delay: 0.4s;
+    }
+
+    /* 3. Sparkles Kiri Bawah */
+    .star-bottom-left {
+      top: 59.61%;    /* 1265 / 2122 */
+      left: 24.16%;   /* 330 / 1366 */
+      width: 8.78%;   /* 120 / 1366 */
+      height: 7.07%;  /* 150 / 2122 */
+      animation: starWiggle3 3.0s ease-in-out infinite;
+      animation-delay: 0.8s;
+    }
+
+    /* 4. Bintang & Bunga Kanan Bawah */
+    .star-bottom-right {
+      top: 64.09%;    /* 1360 / 2122 */
+      left: 72.47%;   /* 990 / 1366 */
+      width: 10.98%;  /* 150 / 1366 */
+      height: 8.48%;  /* 180 / 2122 */
+      animation: starWiggle4 2.6s ease-in-out infinite;
+      animation-delay: 1.2s;
+    }
+
+    /* ========================================================
+       KONTEN TEKS & TOMBOL INTERAKTIF
+       ======================================================== */
     .cover-content {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 2;
+      z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
 
-    /*
-      Penempatan teks berbasis persentase dimensi kartu:
-      - Referensi Lebar: 1366px, Tinggi: 2122px
-    */
-
-    /* Judul atas: "these kids decided on forever" (Top: ~17.5%) */
+    /* Judul atas: "these kids decided on forever" (Top: 17.48%) */
     .title-wrapper {
       position: absolute;
       top: 17.48%;
@@ -123,15 +244,14 @@
 
     .title-line {
       font-family: 'Hangyaboly', cursive, sans-serif;
-      font-size: clamp(20px, 8.2cqi, 32px);
-      font-size: clamp(20px, calc(32px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390)), 32px);
+      font-size: clamp(23px, 8.2vw, 35px);
       line-height: 1.18;
       color: #bb2c3e;
       letter-spacing: 0.2px;
       font-weight: normal;
     }
 
-    /* Nama Mempelai: "Clara & Peter" (Top: ~77.2%) */
+    /* Nama Mempelai: "Clara & Peter" (Top: 77.19%) */
     .names-wrapper {
       position: absolute;
       top: 77.19%;
@@ -141,14 +261,14 @@
 
     .names-text {
       font-family: 'Hangyaboly', cursive, sans-serif;
-      font-size: clamp(14px, calc(21px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390)), 21px);
+      font-size: clamp(15.5px, 5.4vw, 23px);
       line-height: 1;
       color: #bb2c3e;
       letter-spacing: 0.5px;
       font-weight: normal;
     }
 
-    /* Tombol Interaktif "Open Invitation" (Top: ~83.2%) */
+    /* Tombol Interaktif "Open Invitation" (Top: 83.22%) */
     .btn-wrapper {
       position: absolute;
       top: 83.22%;
@@ -160,14 +280,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: calc(108.7px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390));
-      height: calc(26.2px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390));
-      min-width: 85px;
-      min-height: 22px;
+      width: clamp(94px, 27.89vw, 118px);
+      height: clamp(23px, 6.7vw, 29px);
       background-color: #a63232;
       color: #ffffff;
       font-family: 'Hangyaboly', cursive, sans-serif;
-      font-size: clamp(10.5px, calc(14.5px * (min(390px, 92vw, calc(94dvh * (1366 / 2122))) / 390)), 14.5px);
+      font-size: clamp(12px, 3.7vw, 15.5px);
       text-decoration: none;
       border: none;
       border-radius: 6.5px;
@@ -193,8 +311,22 @@
 
   <div class="viewport-wrapper">
     <main class="mobile-frame" id="cover">
-      <!-- Background Artwork Canva Cover -->
+      <!-- Background Artwork Canva Cover (Bingkai + Karikatur Mempelai) -->
       <div class="cover-art" aria-hidden="true"></div>
+
+      <!-- 4 Kluster Bintang / Sparkles dengan Animasi Wiggle Looping -->
+      <div class="star-cluster star-top-left">
+        <img src="./assets/stars_top_left.png" alt="" aria-hidden="true">
+      </div>
+      <div class="star-cluster star-top-right">
+        <img src="./assets/stars_top_right.png" alt="" aria-hidden="true">
+      </div>
+      <div class="star-cluster star-bottom-left">
+        <img src="./assets/stars_bottom_left.png" alt="" aria-hidden="true">
+      </div>
+      <div class="star-cluster star-bottom-right">
+        <img src="./assets/stars_bottom_right.png" alt="" aria-hidden="true">
+      </div>
 
       <!-- Teks & Tombol Interaktif -->
       <div class="cover-content">

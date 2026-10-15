@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     @font-face {
@@ -418,6 +419,63 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.15);
       display: block;
     }
+    .sec-1-music-caption {
+      position: absolute;
+      top: 79.4%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: #111111;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      z-index: 5;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .sec-1-music-caption:hover {
+      color: var(--red-primary);
+    }
+
+    .s1-star-cluster {
+      position: absolute;
+      transform-origin: center center;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .s1-star-cluster img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .s1-star-tl {
+      left: 5.42%;
+      top: 17.32%;
+      width: 8.64%;
+      animation: starWiggle1 2.8s ease-in-out infinite;
+    }
+    .s1-star-tr {
+      left: 84.19%;
+      top: 17.71%;
+      width: 8.27%;
+      animation: starWiggle2 3.2s ease-in-out infinite;
+      animation-delay: 0.4s;
+    }
+    .s1-star-mr {
+      left: 85.72%;
+      top: 48.85%;
+      width: 7.03%;
+      animation: starWiggle4 2.7s ease-in-out infinite;
+      animation-delay: 0.7s;
+    }
+    .s1-star-ml {
+      left: 8.27%;
+      top: 58.68%;
+      width: 5.27%;
+      animation: starWiggle3 3.0s ease-in-out infinite;
+      animation-delay: 1.1s;
+    }
 
     /* SECTION 2: BRIDE & GROOM */
     .sec-2 {
@@ -501,7 +559,7 @@
     .sec-3 {
       position: relative;
       width: 100%;
-      padding: 10px 15px 25px;
+      padding: 10px 0 25px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -515,6 +573,7 @@
       width: 100%;
       max-width: 320px;
       margin-bottom: 12px;
+      padding: 0 15px;
     }
     .s3-stars-l {
       position: absolute;
@@ -541,8 +600,8 @@
     .s3-calendar-wrap {
       position: relative;
       width: 100%;
-      max-width: 375px;
-      margin: 8px auto 14px;
+      max-width: 100%;
+      margin: 4px 0 14px;
     }
     .s3-calendar-img {
       width: 100%;
@@ -800,7 +859,7 @@
     .s4-love-story-stage {
       position: relative;
       width: 100%;
-      max-width: 375px;
+      max-width: 410px;
       margin: 15px auto 25px;
     }
     .s4-love-story-img {
@@ -844,7 +903,7 @@
     .s4-gallery-wrap {
       position: relative;
       width: 100%;
-      max-width: 380px;
+      max-width: 410px;
       margin: 12px auto 0;
       border-radius: 18px;
       overflow: hidden;
@@ -1413,10 +1472,31 @@
       <!-- SECTION 1 (CANVA SECTION 1 LOOK) -->
       <section class="sec-1-stage">
         <img src="./assets/section_1_look.png" class="sec-1-bg" alt="You are invited to the wedding of Clara & Peter">
-        <div class="sec-1-music-box" onclick="toggleAudio()" title="Click to play / pause music">
+
+        <!-- 4 Wiggling Star Clusters in Section 1 -->
+        <div class="s1-star-cluster s1-star-tl">
+          <img src="./assets/s1_stars_tl.png" alt="" aria-hidden="true">
+        </div>
+        <div class="s1-star-cluster s1-star-tr">
+          <img src="./assets/s1_stars_tr.png" alt="" aria-hidden="true">
+        </div>
+        <div class="s1-star-cluster s1-star-mr">
+          <img src="./assets/s1_stars_mr.png" alt="" aria-hidden="true">
+        </div>
+        <div class="s1-star-cluster s1-star-ml">
+          <img src="./assets/s1_stars_ml.png" alt="" aria-hidden="true">
+        </div>
+
+        <div class="sec-1-music-box" onclick="toggleAudio()" title="Turn off / on music here">
           <img src="./assets/music_player.gif" class="sec-1-music-gif" alt="Music player">
         </div>
+        <p class="sec-1-music-caption" id="musicStatusCaption" onclick="toggleAudio()">turn off / on music here</p>
       </section>
+
+      <!-- Seamless Ribbon Divider between Section 1 and 2 (Edge to Edge) -->
+      <div class="garland-divider" style="margin-top: 0;">
+        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
+      </div>
 
       <!-- SECTION 2: BRIDE & GROOM (SS SECTION 2.png) -->
       <section class="sec-2">
@@ -1578,7 +1658,7 @@
           Anda juga bisa mengirimkan hadiah dalam bentuk fisik dengan mengonfirmasi ke kontak berikut:
         </p>
         <a href="https://wa.me/6281234567890?text=Halo%20Clara%20dan%20Peter,%20saya%20ingin%20mengonfirmasi%20kado%20fisik" target="_blank" rel="noopener noreferrer" class="pill-btn">
-          Nomor WA
+          Send Confirmation
         </a>
 
         <!-- Dresscode (Immediately following, continuous downwards) -->
@@ -1846,12 +1926,13 @@
         floatingBtn.classList.add('active-disc');
         musicIconPlaying.style.display = 'block';
         musicIconPaused.style.display = 'none';
-        if (musicStatusCaption) musicStatusCaption.textContent = 'now playing • tap to pause';
       } else {
         floatingBtn.classList.remove('active-disc');
         musicIconPlaying.style.display = 'none';
         musicIconPaused.style.display = 'block';
-        if (musicStatusCaption) musicStatusCaption.textContent = 'click to play music';
+      }
+      if (musicStatusCaption) {
+        musicStatusCaption.textContent = 'turn off / on music here';
       }
     }
 
@@ -1897,7 +1978,16 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 4. RSVP Form Handling
+    // 4. RSVP & Supabase Integration (Romeo & Juliet: 6b09c6bb-92fe-4dca-8242-5a162a3b6ae6)
+    const SUPABASE_URL = 'https://uazfzmuvunmhnjdfxbbi.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_Kbhrasv4jWCwnd52QRvprQ_1bJ-EDpe';
+    const CUSTOMER_ID = '6b09c6bb-92fe-4dca-8242-5a162a3b6ae6';
+    const supabaseClient = (window.supabase && window.supabase.createClient)
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+          auth: { persistSession: false, autoRefreshToken: false }
+        })
+      : null;
+
     let selectedAttendance = 'attending';
     let eventsState = {
       attendAll: true,
@@ -1954,6 +2044,22 @@
       document.getElementById('wishCharCount').textContent = `${textarea.value.length}/500`;
     }
 
+    function formatTimeAgo(dateString) {
+      if (!dateString) return 'Baru saja';
+      const now = new Date();
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return 'Baru saja';
+      const diffSec = Math.floor((now - date) / 1000);
+      if (diffSec < 60) return 'Baru saja';
+      const diffMin = Math.floor(diffSec / 60);
+      if (diffMin < 60) return `${diffMin} menit yang lalu`;
+      const diffHour = Math.floor(diffMin / 60);
+      if (diffHour < 24) return `${diffHour} jam yang lalu`;
+      const diffDay = Math.floor(diffHour / 24);
+      if (diffDay < 7) return `${diffDay} hari yang lalu`;
+      return date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
     const DEFAULT_WISHES = [
       {
         name: 'Dimas & Nadia',
@@ -1972,7 +2078,24 @@
       }
     ];
 
-    function loadWishes() {
+    async function loadWishes() {
+      if (supabaseClient) {
+        try {
+          const { data, error } = await supabaseClient.rpc('public_wishes', { p_customer: CUSTOMER_ID });
+          if (!error && Array.isArray(data) && data.length > 0) {
+            const wishes = data.map(w => ({
+              name: w.name || 'Tamu Undangan',
+              time: formatTimeAgo(w.created_at),
+              message: w.message || ''
+            }));
+            renderWishes(wishes);
+            return;
+          }
+        } catch (err) {
+          console.warn('Could not load Supabase wishes, falling back to local storage:', err);
+        }
+      }
+
       const stored = localStorage.getItem('clara_peter_wishes');
       let wishes = DEFAULT_WISHES;
       if (stored) {
@@ -1983,6 +2106,7 @@
 
     function renderWishes(wishes) {
       const list = document.getElementById('wishesList');
+      if (!list) return;
       list.innerHTML = '';
       wishes.forEach(w => {
         const item = document.createElement('div');
@@ -1998,10 +2122,11 @@
       });
     }
 
-    function handleRsvpSubmit(e) {
+    async function handleRsvpSubmit(e) {
       e.preventDefault();
       const nameInput = document.getElementById('guestName');
       const wishInput = document.getElementById('guestWish');
+      const guestCountSelect = document.getElementById('guestCount');
       const btn = document.getElementById('btnSubmitRsvp');
 
       const name = nameInput.value.trim();
@@ -2016,46 +2141,88 @@
       btn.disabled = true;
       btn.innerHTML = '<span>Mengirimkan...</span>';
 
+      let eventNote = '';
+      let attendanceVal = 'hadir';
+      let totalGuests = 1;
+
+      if (selectedAttendance === 'attending') {
+        attendanceVal = 'hadir';
+        totalGuests = parseInt(guestCountSelect ? guestCountSelect.value : '1', 10) || 1;
+        const events = [];
+        if (eventsState.pemberkatan) events.push('Pemberkatan');
+        if (eventsState.resepsi) events.push('Resepsi');
+        eventNote = eventsState.attendAll ? '[Hadir: Semua Acara]' : `[Hadir: ${events.join(', ')}]`;
+      } else if (selectedAttendance === 'not_attending') {
+        attendanceVal = 'tidak_hadir';
+        totalGuests = 0;
+        eventNote = '[Tidak Hadir]';
+      } else {
+        attendanceVal = 'belum_pasti';
+        totalGuests = 1;
+        eventNote = '[Belum Pasti]';
+      }
+
+      const fullMessage = eventNote ? `${eventNote} ${wish}` : wish;
+
+      // 1. Send to Supabase rsvps table (without .select() to comply with RLS)
+      if (supabaseClient) {
+        try {
+          const { error } = await supabaseClient.from('rsvps').insert({
+            customer_id: CUSTOMER_ID,
+            name: name,
+            attendance: attendanceVal,
+            guests: totalGuests,
+            message: fullMessage
+          });
+          if (error) {
+            console.error('Supabase RSVP insert error:', error);
+          }
+        } catch (err) {
+          console.warn('Supabase RSVP request exception:', err);
+        }
+      }
+
+      // 2. Add newly submitted wish to UI immediately
+      const newWish = {
+        name: name,
+        time: 'Baru saja',
+        message: fullMessage
+      };
+
+      const list = document.getElementById('wishesList');
+      if (list) {
+        const item = document.createElement('div');
+        item.className = 'wish-item';
+        item.innerHTML = `
+          <div class="wish-header">
+            <span class="wish-name">${escapeHtml(newWish.name)}</span>
+            <span class="wish-time">${escapeHtml(newWish.time)}</span>
+          </div>
+          <p class="wish-body">${escapeHtml(newWish.message)}</p>
+        `;
+        list.prepend(item);
+      }
+
+      // 3. Save to localStorage as backup
+      const stored = localStorage.getItem('clara_peter_wishes');
+      let wishes = DEFAULT_WISHES;
+      if (stored) {
+        try { wishes = JSON.parse(stored); } catch (e) {}
+      }
+      wishes.unshift(newWish);
+      localStorage.setItem('clara_peter_wishes', JSON.stringify(wishes));
+
+      // Reset form
+      nameInput.value = '';
+      wishInput.value = '';
+      document.getElementById('wishCharCount').textContent = '0/500';
+      btn.disabled = false;
+      btn.innerHTML = '<span>✓ Terkirim</span>';
       setTimeout(() => {
-        let eventNote = '';
-        if (selectedAttendance === 'attending') {
-          const events = [];
-          if (eventsState.pemberkatan) events.push('Pemberkatan');
-          if (eventsState.resepsi) events.push('Resepsi');
-          eventNote = eventsState.attendAll ? '[Hadir: Semua Acara]' : `[Hadir: ${events.join(', ')}]`;
-        } else if (selectedAttendance === 'not_attending') {
-          eventNote = '[Tidak Hadir]';
-        } else {
-          eventNote = '[Belum Pasti]';
-        }
+        btn.innerHTML = '<span>Kirim RSVP</span>';
+      }, 3000);
 
-        const fullMessage = eventNote ? `${eventNote} ${wish}` : wish;
-
-        const newWish = {
-          name: name,
-          time: 'Baru saja',
-          message: fullMessage
-        };
-
-        const stored = localStorage.getItem('clara_peter_wishes');
-        let wishes = DEFAULT_WISHES;
-        if (stored) {
-          try { wishes = JSON.parse(stored); } catch (e) {}
-        }
-        wishes.unshift(newWish);
-        localStorage.setItem('clara_peter_wishes', JSON.stringify(wishes));
-
-        renderWishes(wishes);
-        wishInput.value = '';
-        document.getElementById('wishCharCount').textContent = '0/500';
-        btn.disabled = false;
-        btn.innerHTML = '<span>✓ Terkirim</span>';
-        setTimeout(() => {
-          btn.innerHTML = '<span>Kirim RSVP</span>';
-        }, 3000);
-
-        showToast('Terima kasih! Konfirmasi kehadiran Anda telah tersimpan.');
-      }, 500);
+      showToast('Terima kasih! Konfirmasi kehadiran Anda telah tersimpan.');
     }
 
     // 5. Copy Clipboard

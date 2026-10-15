@@ -365,311 +365,610 @@
     }
 
     /* ========================================================
-       SECTION 1: INVITATION HEADER, HANDS, BIBLE, MUSIC
+       PAGE 2: INVITATION SECTIONS STYLING
        ======================================================== */
-    .sec-hands {
-      position: relative;
+    .garland-divider {
       width: 100%;
-      padding: 10px 0 20px;
-      text-align: center;
+      max-width: 390px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .garland-divider img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .hands-wrap {
+    .sec-heading {
+      font-family: var(--font-heading);
+      font-size: 34px;
+      color: var(--red-primary);
+      margin: 15px 0 20px;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.15;
+    }
+
+    .pill-btn {
+      display: inline-block;
+      background-color: var(--red-pill);
+      color: #fff9e3;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 20px;
+      border-radius: 9999px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(155, 54, 54, 0.25);
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+    .pill-btn:hover {
+      background-color: var(--red-primary);
+    }
+
+    /* SECTION 1: INVITATION, HANDS, BIBLE, MUSIC */
+    .sec-1 {
       position: relative;
       width: 100%;
-      height: 160px;
-      margin: 10px 0 5px;
+      padding: 5px 15px 25px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .s1-sparkle-tl {
+      position: absolute;
+      left: 20px;
+      top: 65px;
+      width: 44px;
+      pointer-events: none;
+    }
+    .s1-sparkle-tr {
+      position: absolute;
+      right: 25px;
+      top: 65px;
+      width: 30px;
+      pointer-events: none;
+    }
+    .s1-invited {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      color: var(--red-primary);
+      margin: 15px 0 10px;
+      font-weight: normal;
+    }
+    .s1-hands-stage {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      margin: 10px 0 12px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .hand-left {
+    .s1-hand-l {
       position: absolute;
-      left: -20px;
-      top: -15px;
-      width: 165px;
-      height: auto;
+      left: -15px;
+      top: 10px;
+      width: 135px;
       pointer-events: none;
     }
-    .hand-right {
+    .s1-hand-r {
       position: absolute;
-      right: -20px;
-      top: 5px;
-      width: 155px;
-      height: auto;
+      right: -15px;
+      top: 18px;
+      width: 130px;
       pointer-events: none;
     }
-    .hands-mid-text {
+    .s1-hands-center {
       position: relative;
       z-index: 2;
-      text-align: center;
-    }
-
-    .sec-verse {
-      max-width: 310px;
-      margin: 15px auto 20px;
-      padding: 0 10px;
-      text-align: center;
-    }
-    .sec-verse-quote {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #111111;
-      font-style: italic;
-    }
-    .sec-verse-ref {
-      display: block;
-      margin-top: 8px;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #111111;
-    }
-
-    /* Music Player: GIF centered directly on cream background */
-    .sec-music {
-      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 10px auto 25px;
+      font-family: var(--font-heading);
+      color: var(--red-primary);
+      line-height: 1.15;
+    }
+    .s1-to {
+      font-size: 18px;
+    }
+    .s1-wedding {
+      font-size: 18px;
+    }
+    .s1-names-wrap {
+      position: relative;
+      display: inline-block;
+      margin: 5px auto 16px;
+    }
+    .s1-names {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      color: var(--red-primary);
+      font-weight: normal;
+      white-space: nowrap;
+    }
+    .s1-sparkle-mr {
+      position: absolute;
+      right: -42px;
+      top: -3px;
+      width: 32px;
+      pointer-events: none;
+    }
+    .s1-verse-wrap {
+      position: relative;
+      max-width: 270px;
+      margin: 0 auto 20px;
+      padding: 0 5px;
+    }
+    .s1-sparkle-vl {
+      position: absolute;
+      left: -38px;
+      top: 10px;
+      width: 26px;
+      pointer-events: none;
+    }
+    .s1-verse-text {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      line-height: 1.35;
+      color: #111111;
+      font-weight: 400;
+    }
+    .s1-verse-ref {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      color: #111111;
+      margin-top: 6px;
+    }
+    .s1-music-box {
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 5px;
     }
-    .music-gif-box {
-      width: 290px;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-    .music-gif-box img {
-      width: 100%;
+    .s1-music-gif {
+      width: 250px;
       height: auto;
-      display: block;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
-    .music-play-caption {
+    .s1-music-cap {
       font-family: var(--font-body);
       font-size: 14px;
-      color: #777777;
-      text-align: center;
-      margin-top: 4px;
+      color: #111111;
+      margin-top: 8px;
+      font-weight: 500;
       letter-spacing: 0.2px;
     }
 
-    /* ========================================================
-       SECTION 2: BRIDE & GROOM
-       ======================================================== */
-    .sec-profiles {
+    /* SECTION 2: BRIDE & GROOM */
+    .sec-2 {
+      position: relative;
       width: 100%;
-      padding: 10px 20px 20px;
+      padding: 10px 15px 25px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .profile-item {
+    .s2-profile-card {
       position: relative;
-      width: 100%;
-      max-width: 300px;
-      margin-bottom: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
+      max-width: 280px;
     }
-    .profile-arch-img {
-      width: 190px;
+    .s2-photo-frame {
+      width: 155px;
       height: auto;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      display: block;
     }
-    .profile-decor {
+    .s2-peter-sparkle-tr {
       position: absolute;
+      right: 28px;
+      top: 15px;
+      width: 32px;
       pointer-events: none;
     }
-    .decor-p-left {
-      left: 10px;
-      top: 40px;
-      width: 40px;
+    .s2-peter-sparkle-bl {
+      position: absolute;
+      left: 28px;
+      bottom: 95px;
+      width: 28px;
+      pointer-events: none;
     }
-    .decor-p-right {
-      right: 10px;
-      top: 10px;
-      width: 45px;
+    .s2-clara-decor {
+      position: absolute;
+      left: 50%;
+      top: -15px;
+      transform: translateX(-50%);
+      width: 260px;
+      pointer-events: none;
     }
-    .decor-c-left {
-      left: 15px;
-      top: 20px;
-      width: 40px;
-    }
-    .decor-c-right {
-      right: 15px;
-      top: 50px;
-      width: 45px;
-    }
-
-    .profile-title-name {
+    .s2-profile-name {
       font-family: var(--font-heading);
       font-size: 26px;
       color: var(--red-primary);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-weight: normal;
     }
-    .profile-parents {
-      font-size: 11.5px;
+    .s2-parents {
+      font-family: var(--font-body);
+      font-size: 10.5px;
       color: #111111;
-      line-height: 1.45;
-      margin-bottom: 8px;
+      line-height: 1.35;
+      margin-bottom: 6px;
     }
-    .profile-ig-link {
+    .s2-ig-link {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: 12px;
+      gap: 4px;
+      font-family: var(--font-body);
+      font-size: 11px;
       color: var(--red-primary);
       text-decoration: underline;
       font-weight: 500;
     }
 
-    /* ========================================================
-       SECTION 3: SAVE THE DATE, COUNTDOWN, EVENTS
-       ======================================================== */
-    .sec-std {
+    /* SECTION 3: SAVE THE DATE */
+    .sec-3 {
+      position: relative;
       width: 100%;
-      padding: 10px 20px 25px;
+      padding: 10px 15px 25px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .std-title-wrap {
+    .s3-header {
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       max-width: 320px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .std-stars-left {
+    .s3-stars-l {
       position: absolute;
-      left: 10px;
-      top: -5px;
-      width: 40px;
-      pointer-events: none;
-    }
-    .std-stars-right {
-      position: absolute;
-      right: 10px;
+      left: 20px;
       top: 0px;
-      width: 35px;
+      width: 38px;
       pointer-events: none;
     }
-
-    .calendar-full-img {
+    .s3-stars-r {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      width: 38px;
+      transform: scaleX(-1);
+      pointer-events: none;
+    }
+    .s3-title {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      line-height: 1.05;
+      color: var(--red-primary);
+      font-weight: normal;
+    }
+    .s3-calendar-wrap {
       width: 100%;
-      max-width: 340px;
+      max-width: 375px;
+      margin: 8px auto 14px;
+    }
+    .s3-calendar-img {
+      width: 100%;
       height: auto;
-      margin: 10px auto 18px;
+      display: block;
     }
-
-    /* Live Countdown matching Canva exactly: 191 : 06 : 06 : 35 */
-    .countdown-canva-wrap {
-      margin: 10px auto 18px;
-      text-align: center;
+    .s3-countdown {
+      margin: 10px auto 16px;
+      width: 100%;
+      max-width: 300px;
     }
-    .countdown-canva-digits {
+    .cd-grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 6px;
+    }
+    .cd-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 52px;
+    }
+    .cd-num {
       font-family: var(--font-body);
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 500;
       color: var(--red-primary);
-      letter-spacing: 2px;
       line-height: 1;
     }
-    .countdown-canva-labels {
+    .cd-sep {
       font-family: var(--font-body);
-      font-size: 9.5px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 500;
       color: var(--red-primary);
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      margin-top: 6px;
-      padding-left: 5px;
+      line-height: 1;
+      margin-top: -1px;
     }
-
-    /* Date Pill: Sabtu, 24 April 2027 */
-    .std-date-pill {
+    .cd-lbl {
+      font-family: var(--font-body);
+      font-size: 8.5px;
+      font-weight: 700;
+      color: var(--red-primary);
+      letter-spacing: 0.1em;
+      margin-top: 6px;
+    }
+    .s3-date-pill {
       display: inline-block;
       background-color: var(--red-pill);
       color: #fff9e3;
       font-family: var(--font-heading);
-      font-size: 16px;
+      font-size: 17px;
       padding: 6px 24px;
-      border-radius: 20px;
-      margin: 14px auto 26px;
-      box-shadow: 0 2px 6px rgba(155, 54, 54, 0.3);
+      border-radius: 9999px;
+      margin: 6px auto 28px;
+      box-shadow: 0 2px 6px rgba(155, 54, 54, 0.25);
     }
-
-    /* Events: Pemberkatan & Resepsi directly on cream background */
-    .event-block {
-      width: 100%;
-      max-width: 320px;
-      margin-bottom: 34px;
+    .s3-event-block {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      width: 100%;
+      max-width: 320px;
     }
-    .event-sketch-img {
-      height: 75px;
-      width: auto;
-      object-fit: contain;
-      margin-bottom: 10px;
+    .s3-church-sketch {
+      width: 55px;
+      height: auto;
+      margin-bottom: 8px;
     }
-    .event-title-text {
+    .s3-reception-sketch {
+      width: 90px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+    .s3-event-title {
       font-family: var(--font-heading);
-      font-size: 26px;
+      font-size: 28px;
       color: var(--red-primary);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-weight: normal;
     }
-    .event-datetime {
-      font-size: 11.5px;
-      color: #111111;
-      font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 4px;
-    }
-    .event-place-name {
-      font-size: 12px;
-      color: var(--red-primary);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .event-place-addr {
+    .s3-event-datetime {
+      font-family: var(--font-body);
       font-size: 11px;
-      color: #333333;
-      line-height: 1.45;
-      max-width: 290px;
+      font-weight: 500;
+      color: #111111;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .s3-venue-name {
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--red-primary);
+      margin-bottom: 4px;
+    }
+    .s3-venue-addr {
+      font-family: var(--font-body);
+      font-size: 10px;
+      color: #222222;
+      line-height: 1.4;
+      max-width: 270px;
       margin-bottom: 12px;
     }
 
-    /* ========================================================
-       SECTION 4: RSVP (JOYFULDAY FORMAT ADAPTED)
-       ======================================================== */
+    /* SECTION 4: PART 1 & PART 2 (MEMANJANG KEBAWAH) */
+    .sec-4 {
+      position: relative;
+      width: 100%;
+      padding: 10px 15px 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .s4-ticket-stage {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 845 / 892;
+      margin: 10px auto 16px;
+    }
+    .s4-ticket-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+    .ticket-slot {
+      position: absolute;
+      width: 66%;
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-4.5deg);
+    }
+    .ticket-slot-top {
+      top: 17%;
+      left: 17%;
+    }
+    .ticket-slot-bottom {
+      top: 61%;
+      left: 21%;
+    }
+    .t-bank {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      color: var(--red-primary);
+      margin-bottom: 2px;
+    }
+    .t-acc-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+    .t-num {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #111111;
+      letter-spacing: 0.5px;
+    }
+    .t-copy-btn {
+      background-color: var(--red-pill);
+      color: #fff9e3;
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    .t-holder {
+      font-family: var(--font-body);
+      font-size: 10px;
+      color: #333333;
+    }
+    .s4-phys-note {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      color: #222222;
+      line-height: 1.4;
+      max-width: 270px;
+      margin: 0 auto 10px;
+    }
+    .s4-dresscode-desc {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      color: #222222;
+      line-height: 1.4;
+      max-width: 280px;
+      margin: 0 auto 12px;
+    }
+    .s4-dresscode-sketch {
+      width: 140px;
+      height: auto;
+      margin: 0 auto 12px;
+      display: block;
+    }
+    .s4-swatches-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-bottom: 8px;
+    }
+    .swatch-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .s4-swatches-label {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      color: #222222;
+      font-weight: 500;
+    }
+    .s4-story-container {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 15px auto 10px;
+      display: flex;
+      align-items: stretch;
+      text-align: left;
+      padding: 0 10px;
+    }
+    .story-line-col {
+      width: 24px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+    .story-line-asset {
+      width: 14px;
+      height: 98%;
+      object-fit: fill;
+    }
+    .story-content-col {
+      flex: 1;
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .story-item {
+      margin-bottom: 22px;
+    }
+    .story-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      color: var(--red-primary);
+      margin-bottom: 4px;
+      font-weight: normal;
+    }
+    .story-text {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      color: #222222;
+      line-height: 1.45;
+    }
+    .s4-gallery-wrap {
+      width: 100%;
+      max-width: 360px;
+      margin: 10px auto;
+    }
+    .s4-gallery-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* RSVP STYLING */
     .sec-rsvp {
       width: 100%;
-      padding: 10px 20px 25px;
+      padding: 10px 15px 30px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     .rsvp-subtitle-text {
-      font-size: 12px;
+      font-size: 11.5px;
       color: #333333;
-      max-width: 310px;
-      line-height: 1.5;
+      max-width: 300px;
+      line-height: 1.45;
       margin: 0 auto 18px;
     }
-
     .rsvp-card-form {
       width: 100%;
       max-width: 330px;
-      background: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.75);
       border: 1px solid rgba(187, 44, 62, 0.25);
       border-radius: 16px;
       padding: 20px 18px;
@@ -700,8 +999,6 @@
     .form-input:focus {
       border-color: var(--red-primary);
     }
-
-    /* Radio Options with Red Dot */
     .radio-option {
       display: flex;
       align-items: center;
@@ -743,8 +1040,6 @@
       color: var(--red-primary);
       font-weight: 600;
     }
-
-    /* Event checklist */
     .events-checklist-box {
       background: #fffbf2;
       border: 1px solid #e5d8c3;
@@ -780,7 +1075,6 @@
       font-size: 11.5px;
       color: #333333;
     }
-
     .form-select {
       width: 100%;
       padding: 8px 12px;
@@ -819,7 +1113,6 @@
     .form-textarea:focus {
       border-color: var(--red-primary);
     }
-
     .btn-submit-rsvp {
       width: 100%;
       padding: 10px;
@@ -841,8 +1134,6 @@
     .btn-submit-rsvp:hover {
       background-color: var(--red-primary);
     }
-
-    /* Wishes List */
     .wishes-board-wrap {
       width: 100%;
       max-width: 330px;
@@ -895,250 +1186,96 @@
       word-break: break-word;
     }
 
-    /* ========================================================
-       SECTION 5: WEDDING GIFT (TICKETS ASSET 12.png)
-       ======================================================== */
-    .sec-gift {
-      width: 100%;
-      padding: 10px 15px 25px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .gift-ticket-stage {
-      position: relative;
-      width: 100%;
-      max-width: 320px;
-      aspect-ratio: 845 / 892;
-      margin: 15px auto 20px;
-    }
-    .gift-ticket-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      pointer-events: none;
-    }
-
-    /* Slot 1: Top Ticket */
-    .ticket-slot-1 {
-      position: absolute;
-      top: 13%;
-      left: 10%;
-      width: 76%;
-      height: 32%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    /* Slot 2: Bottom Ticket */
-    .ticket-slot-2 {
-      position: absolute;
-      top: 58%;
-      left: 14%;
-      width: 76%;
-      height: 32%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .t-bank {
-      font-family: var(--font-heading);
-      font-size: 17px;
-      color: var(--red-primary);
-      margin-bottom: 1px;
-    }
-    .t-num {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 700;
-      color: #111111;
-      letter-spacing: 0.8px;
-      margin-bottom: 1px;
-    }
-    .t-holder {
-      font-size: 10.5px;
-      color: #333333;
-      margin-bottom: 6px;
-    }
-    .btn-t-copy {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background-color: var(--red-pill);
-      color: #fff9e3;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 12px;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .btn-t-copy:hover {
-      background-color: var(--red-primary);
-    }
-
-    .gift-phys-note {
-      font-size: 11.5px;
-      color: #333333;
-      max-width: 290px;
-      line-height: 1.45;
-      margin: 8px auto 10px;
-    }
-
-    /* ========================================================
-       SECTION 6: DRESSCODE
-       ======================================================== */
-    .sec-dresscode {
-      width: 100%;
-      padding: 10px 20px 25px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .dresscode-desc {
-      font-size: 11.5px;
-      color: #333333;
-      max-width: 300px;
-      line-height: 1.45;
-      margin: 0 auto 15px;
-    }
-    .dresscode-img {
-      width: 100%;
-      max-width: 260px;
-      height: auto;
-      margin-bottom: 8px;
-    }
-    .dresscode-colors-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #222222;
-      margin-top: 4px;
-    }
-
-    /* ========================================================
-       SECTION 7: OUR LOVE STORY
-       ======================================================== */
-    .sec-story {
-      width: 100%;
-      padding: 10px 20px 25px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .story-container {
-      position: relative;
-      width: 100%;
-      max-width: 310px;
-      margin: 20px auto 10px;
-      padding-left: 32px;
-      text-align: left;
-    }
-    .story-line-asset {
-      position: absolute;
-      left: 6px;
-      top: 5px;
-      width: 14px;
-      height: calc(100% - 10px);
-      object-fit: fill;
-      pointer-events: none;
-    }
-    .story-item {
-      margin-bottom: 24px;
-    }
-    .story-item-title {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      color: var(--red-primary);
-      margin-bottom: 4px;
-      font-weight: normal;
-    }
-    .story-item-body {
-      font-size: 11.5px;
-      color: #222222;
-      line-height: 1.5;
-    }
-
-    /* ========================================================
-       SECTION 8: LOVE GALLERY
-       ======================================================== */
-    .sec-gallery {
-      width: 100%;
-      padding: 10px 15px 25px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .gallery-img {
-      width: 100%;
-      max-width: 340px;
-      height: auto;
-      display: block;
-      margin: 10px auto;
-    }
-
-    /* ========================================================
-       SECTION 9: CLOSING
-       ======================================================== */
+    /* CLOSING / FOOTER (SS CLOSING - FOOTER.png) */
     .sec-closing {
+      position: relative;
       width: 100%;
-      padding: 10px 20px 45px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 20px 15px 50px;
     }
-    .closing-gif {
+    .closing-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       width: 100%;
-      max-width: 220px;
-      height: auto;
-      margin: 10px auto 20px;
+      max-width: 350px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .closing-left {
+      position: relative;
+      flex: 1;
+      text-align: left;
+      padding-left: 10px;
+    }
+    .closing-star-top {
+      position: absolute;
+      left: -8px;
+      top: -15px;
+      width: 28px;
+      pointer-events: none;
     }
     .closing-see-you {
       font-family: var(--font-heading);
-      font-size: 34px;
+      font-size: 26px;
       color: var(--red-primary);
       line-height: 1.1;
       font-weight: normal;
     }
     .closing-on {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      color: var(--red-primary);
-      margin: 4px 0;
-      font-weight: normal;
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: #111111;
+      margin: 2px 0;
     }
     .closing-date {
       font-family: var(--font-heading);
-      font-size: 22px;
+      font-size: 20px;
+      color: var(--red-primary);
+      margin-bottom: 8px;
+      font-weight: normal;
+    }
+    .closing-names {
+      font-family: var(--font-heading);
+      font-size: 28px;
       color: var(--red-primary);
       margin-bottom: 12px;
       font-weight: normal;
     }
-    .closing-couple {
-      font-family: var(--font-heading);
-      font-size: 30px;
-      color: var(--red-primary);
-      margin-bottom: 18px;
-      font-weight: normal;
+    .closing-powered {
+      font-family: var(--font-body);
+      font-size: 10px;
+      color: #666666;
+      line-height: 1.3;
     }
-    .closing-credit {
-      font-size: 11px;
-      color: #888888;
-      letter-spacing: 0.5px;
+    .closing-powered span {
+      font-weight: 700;
+      color: #111111;
+    }
+    .closing-hands-hearts {
+      position: relative;
+      margin-top: 15px;
+      height: 50px;
+    }
+    .closing-hand-groom {
+      width: 80px;
+      height: auto;
+      position: absolute;
+      left: -15px;
+      bottom: 0;
+      pointer-events: none;
+    }
+    .closing-right {
+      width: 140px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .closing-photostrip {
+      width: 125px;
+      height: auto;
+      transform: rotate(5deg);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      border-radius: 4px;
     }
 
     /* Floating Music Toggle Button */
@@ -1270,150 +1407,258 @@
 
       <!-- Top Garland Ribbon -->
       <div class="garland-divider" style="margin-top: 5px;">
-        <img src="./assets/p2_ribbon_banner.png" alt="" aria-hidden="true">
+        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- SECTION 1: INVITATION, HANDS, BIBLE, MUSIC -->
-      <section class="sec-hands">
-        <h2 class="c-title">you are invited!</h2>
+      <!-- SECTION 1: INVITATION, HANDS, BIBLE, MUSIC (SS SECTION 1.png) -->
+      <section class="sec-1">
+        <img src="./assets/sec1_sparkle_top_left.png" class="s1-sparkle-tl" alt="" aria-hidden="true">
+        <img src="./assets/sec1_sparkle_top_right.png" class="s1-sparkle-tr" alt="" aria-hidden="true">
 
-        <div class="hands-wrap">
-          <img src="./assets/p2_hand_groom.png" class="hand-left" alt="">
-          <div class="hands-mid-text">
-            <p class="c-subtitle">to<br>the wedding of</p>
+        <h2 class="s1-invited">you are invited!</h2>
+
+        <div class="s1-hands-stage">
+          <img src="./assets/groom_hand_cuff.png" class="s1-hand-l" alt="">
+          <div class="s1-hands-center">
+            <span class="s1-to">to</span>
+            <span class="s1-wedding">the wedding of</span>
           </div>
-          <img src="./assets/p2_hand_bride.png" class="hand-right" alt="">
+          <img src="./assets/bride_hand_ring.png" class="s1-hand-r" alt="">
         </div>
 
-        <h1 class="c-names">Clara & Peter</h1>
+        <div class="s1-names-wrap">
+          <h1 class="s1-names">Clara & Peter</h1>
+          <img src="./assets/sec1_sparkle_mid_right.png" class="s1-sparkle-mr" alt="" aria-hidden="true">
+        </div>
 
-        <div class="sec-verse">
-          <p class="sec-verse-quote">
+        <div class="s1-verse-wrap">
+          <img src="./assets/sec1_sparkle_verse_left.png" class="s1-sparkle-vl" alt="" aria-hidden="true">
+          <p class="s1-verse-text">
             "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
           </p>
-          <span class="sec-verse-ref">Matius 19:6</span>
+          <p class="s1-verse-ref">Matius 19:6</p>
         </div>
 
-        <!-- Music player GIF directly on cream background -->
-        <div class="sec-music" onclick="toggleAudio()">
-          <div class="music-gif-box">
-            <img src="./assets/GIF_SECTION_1.gif" alt="Music player">
-          </div>
-          <span class="music-play-caption" id="musicStatusCaption">click to play music</span>
+        <div class="s1-music-box" onclick="toggleAudio()">
+          <img src="./assets/music_player.gif" class="s1-music-gif" alt="Music player">
+          <p class="s1-music-cap" id="musicStatusCaption">click to play music</p>
         </div>
       </section>
 
       <!-- Ribbon Divider -->
       <div class="garland-divider">
-        <img src="./assets/p2_ribbon_banner.png" alt="" aria-hidden="true">
+        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- SECTION 2: BRIDE & GROOM -->
-      <section class="sec-profiles">
-        <h2 class="c-title">Bride & Groom</h2>
+      <!-- SECTION 2: BRIDE & GROOM (SS SECTION 2.png) -->
+      <section class="sec-2">
+        <h2 class="sec-heading">Bride & Groom</h2>
 
         <!-- Peter Suherman -->
-        <div class="profile-item">
-          <img src="./assets/7.png" class="profile-decor decor-p-left" alt="" aria-hidden="true">
-          <img src="./assets/7.png" class="profile-decor decor-p-right" alt="" aria-hidden="true">
+        <div class="s2-profile-card">
+          <img src="./assets/sec1_sparkle_top_right.png" class="s2-peter-sparkle-tr" alt="" aria-hidden="true">
+          <img src="./assets/sec1_sparkle_top_right.png" class="s2-peter-sparkle-bl" alt="" aria-hidden="true">
           
-          <img src="./assets/5.png" class="profile-arch-img" alt="Peter Suherman">
-          <h3 class="profile-title-name">Peter Suherman</h3>
-          <p class="profile-parents">
+          <img src="./assets/peter_frame.png" class="s2-photo-frame" alt="Peter Suherman">
+          <h3 class="s2-profile-name">Peter Suherman</h3>
+          <p class="s2-parents">
             Putra dari<br>bapak...<br>dan ibu....
           </p>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="profile-ig-link">
-            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            <span>petersuherman</span>
+          <a href="https://instagram.com/petersuherman" target="_blank" rel="noopener noreferrer" class="s2-ig-link">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>@petersuherman</span>
           </a>
         </div>
 
         <!-- Clara Angeline -->
-        <div class="profile-item" style="margin-bottom: 10px;">
-          <img src="./assets/7.png" class="profile-decor decor-c-left" alt="" aria-hidden="true">
-          <img src="./assets/7.png" class="profile-decor decor-c-right" alt="" aria-hidden="true">
+        <div class="s2-profile-card" style="margin-top: 35px;">
+          <img src="./assets/clara_decor_hearts.png" class="s2-clara-decor" alt="" aria-hidden="true">
 
-          <img src="./assets/6.png" class="profile-arch-img" alt="Clara Angeline">
-          <h3 class="profile-title-name">Clara Angeline</h3>
-          <p class="profile-parents">
+          <img src="./assets/clara_frame.png" class="s2-photo-frame" alt="Clara Angeline">
+          <h3 class="s2-profile-name">Clara Angeline</h3>
+          <p class="s2-parents">
             Putri dari<br>bapak...<br>dan ibu....
           </p>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="profile-ig-link">
-            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            <span>claraangeline</span>
+          <a href="https://instagram.com/claraangeline" target="_blank" rel="noopener noreferrer" class="s2-ig-link">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>@claraangeline</span>
           </a>
         </div>
       </section>
 
       <!-- Ribbon Divider -->
       <div class="garland-divider">
-        <img src="./assets/p2_ribbon_banner.png" alt="" aria-hidden="true">
+        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- SECTION 3: SAVE THE DATE -->
-      <section class="sec-std">
-        <div class="std-title-wrap">
-          <img src="./assets/8.png" class="std-stars-left" alt="" aria-hidden="true">
-          <h2 class="c-title">Save The Date!</h2>
-          <img src="./assets/8.png" class="std-stars-right" alt="" aria-hidden="true">
+      <!-- SECTION 3: SAVE THE DATE (SS SECTION 3.png) -->
+      <section class="sec-3">
+        <div class="s3-header">
+          <img src="./assets/stars_trio.png" class="s3-stars-l" alt="" aria-hidden="true">
+          <h2 class="s3-title">Save The<br>Date!</h2>
+          <img src="./assets/stars_trio.png" class="s3-stars-r" alt="" aria-hidden="true">
         </div>
 
-        <!-- Calendar Graphic -->
-        <img src="./assets/p2_calendar_box.png" class="calendar-full-img" alt="Calendar 23 24 25">
+        <div class="s3-calendar-wrap">
+          <img src="./assets/calendar_strip.png" class="s3-calendar-img" alt="Calendar 23 24 25">
+        </div>
 
-        <!-- Countdown: 191 : 06 : 06 : 35 -->
-        <div class="countdown-canva-wrap">
-          <div class="countdown-canva-digits" id="countdownDigits">
-            00 : 00 : 00 : 00
-          </div>
-          <div class="countdown-canva-labels">
-            DAYS &nbsp;&nbsp;&nbsp; HOURS &nbsp;&nbsp;&nbsp; MINUTES &nbsp;&nbsp;&nbsp; SECONDS
+        <!-- Countdown matching Canva -->
+        <div class="s3-countdown">
+          <div class="cd-grid">
+            <div class="cd-col">
+              <span class="cd-num" id="cdDays">00</span>
+              <span class="cd-lbl">DAYS</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-col">
+              <span class="cd-num" id="cdHours">00</span>
+              <span class="cd-lbl">HOURS</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-col">
+              <span class="cd-num" id="cdMinutes">00</span>
+              <span class="cd-lbl">MINUTES</span>
+            </div>
+            <span class="cd-sep">:</span>
+            <div class="cd-col">
+              <span class="cd-num" id="cdSeconds">00</span>
+              <span class="cd-lbl">SECONDS</span>
+            </div>
           </div>
         </div>
 
-        <!-- Date Banner -->
-        <div class="std-date-pill">
+        <!-- Date Pill -->
+        <div class="s3-date-pill">
           Sabtu, 24 April 2027
         </div>
 
         <!-- Event 1: Pemberkatan -->
-        <div class="event-block">
-          <img src="./assets/10.png" class="event-sketch-img" alt="Gereja">
-          <h3 class="event-title-text">Pemberkatan</h3>
-          <p class="event-datetime">Sabtu, 24 April 2027<br>09.00 - 10.00</p>
-          <p class="event-place-name">Gereja Katedral Jakarta</p>
-          <p class="event-place-addr">
+        <div class="s3-event-block">
+          <img src="./assets/church_sketch.png" class="s3-church-sketch" alt="Gereja">
+          <h3 class="s3-event-title">Pemberkatan</h3>
+          <p class="s3-event-datetime">Sabtu, 24 April 2027<br>09.00 - 10.00</p>
+          <p class="s3-venue-name">Gereja Katedral Jakarta</p>
+          <p class="s3-venue-addr">
             Gereja Katedral Jkt, Ps. Baru, Kecamatan Sawah Besar, Kota Jakarta Pusat, DKI Jakarta 10710, Indonesia
           </p>
-          <a href="https://maps.google.com/?q=Gereja+Katedral+Jakarta" target="_blank" rel="noopener noreferrer" class="c-pill-btn">
+          <a href="https://maps.google.com/?q=Gereja+Katedral+Jakarta" target="_blank" rel="noopener noreferrer" class="pill-btn">
             View Maps
           </a>
         </div>
 
         <!-- Event 2: Resepsi -->
-        <div class="event-block" style="margin-bottom: 10px;">
-          <img src="./assets/11.png" class="event-sketch-img" alt="Resepsi">
-          <h3 class="event-title-text">Resepsi</h3>
-          <p class="event-datetime">Sabtu, 24 April 2027<br>17.00 - 21.00</p>
-          <p class="event-place-name">Grand Ballroom Shangri-La</p>
-          <p class="event-place-addr">
+        <div class="s3-event-block" style="margin-top: 35px; margin-bottom: 10px;">
+          <img src="./assets/reception_sketch.png" class="s3-reception-sketch" alt="Resepsi">
+          <h3 class="s3-event-title">Resepsi</h3>
+          <p class="s3-event-datetime">Sabtu, 24 April 2027<br>17.00 - 21.00</p>
+          <p class="s3-venue-name">Grand Ballroom Shangri-La</p>
+          <p class="s3-venue-addr">
             Shangri-La Jakarta, Kota BNI, JL. Jenderal Sudirman No. Kav. 1, RT.10/RW.9, Karet Tengsin, Kecamatan Tanah Abang, Kota Jakarta Pusat, DKI Jakarta, 10220, Jakarta
           </p>
-          <a href="https://maps.google.com/?q=Shangri-La+Jakarta" target="_blank" rel="noopener noreferrer" class="c-pill-btn">
+          <a href="https://maps.google.com/?q=Shangri-La+Jakarta" target="_blank" rel="noopener noreferrer" class="pill-btn">
             View Maps
           </a>
         </div>
       </section>
 
-      <!-- SECTION 4: RSVP -->
+      <!-- Ribbon Divider -->
+      <div class="garland-divider">
+        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
+      </div>
+
+      <!-- SECTION 4: PART 1 & PART 2 MEMANJANG KEBAWAH (SS SECTION 4 PART 1 & PART 2) -->
+      <section class="sec-4">
+        <!-- PART 1: Wedding Gift -->
+        <h2 class="sec-heading">Wedding Gift</h2>
+
+        <div class="s4-ticket-stage">
+          <img src="./assets/ticket_full.png" class="s4-ticket-bg" alt="Wedding Gift Tickets">
+
+          <!-- Top Ticket: Bank BCA (Clara) -->
+          <div class="ticket-slot ticket-slot-top">
+            <span class="t-bank">BANK BCA</span>
+            <div class="t-acc-row">
+              <span class="t-num">1234567890</span>
+              <button type="button" class="t-copy-btn" onclick="copyToClipboard('1234567890', 'No. Rekening BCA berhasil disalin!')">Salin</button>
+            </div>
+            <span class="t-holder">a.n Clara Angeline</span>
+          </div>
+
+          <!-- Bottom Ticket: Bank Mandiri (Peter) -->
+          <div class="ticket-slot ticket-slot-bottom">
+            <span class="t-bank">BANK MANDIRI</span>
+            <div class="t-acc-row">
+              <span class="t-num">0987654321</span>
+              <button type="button" class="t-copy-btn" onclick="copyToClipboard('0987654321', 'No. Rekening Mandiri berhasil disalin!')">Salin</button>
+            </div>
+            <span class="t-holder">a.n Peter Suherman</span>
+          </div>
+        </div>
+
+        <p class="s4-phys-note">
+          Anda juga bisa mengirimkan hadiah dalam bentuk fisik dengan mengonfirmasi ke kontak berikut:
+        </p>
+        <a href="https://wa.me/6281234567890?text=Halo%20Clara%20dan%20Peter,%20saya%20ingin%20mengonfirmasi%20kado%20fisik" target="_blank" rel="noopener noreferrer" class="pill-btn">
+          Nomor WA
+        </a>
+
+        <!-- Dresscode (Immediately following, continuous downwards) -->
+        <h2 class="sec-heading" style="margin-top: 50px;">Dresscode</h2>
+        <p class="s4-dresscode-desc">
+          Pakai pakaian ternyamanmu! Tapi kalau kamu punya outfit dengan sentuhan warna [warna tema], itu akan sangat menyempurnakan hari bahagia kami.
+        </p>
+        <img src="./assets/dresscode_sketch.png" class="s4-dresscode-sketch" alt="Dresscode sketch">
+        <p class="s4-swatches-label">
+          Burgundy, Cokelat Muda, dan Krem.
+        </p>
+
+        <!-- PART 2: Our Love Story (Immediately following, continuous downwards) -->
+        <h2 class="sec-heading" style="margin-top: 50px;">Our Love Story</h2>
+
+        <div class="s4-story-container">
+          <div class="story-line-col">
+            <img src="./assets/story_line.png" class="story-line-asset" alt="" aria-hidden="true">
+          </div>
+          <div class="story-content-col">
+            <div class="story-item">
+              <h3 class="story-title">How We Met</h3>
+              <p class="story-text">
+                It all started with a casual online interaction, with zero expectations. What began as simple chats about our daily routines slowly turned into the notifications we looked forward to the most.
+              </p>
+            </div>
+            <div class="story-item">
+              <h3 class="story-title">Our Journey</h3>
+              <p class="story-text">
+                Our connection flowed naturally. Through late-night conversations, swapping playlists, and supporting each other's goals, we found our comfort zone. We quickly realized that we had become each other's ultimate support system.
+              </p>
+            </div>
+            <div class="story-item" style="margin-bottom: 0;">
+              <h3 class="story-title">The Commitment</h3>
+              <p class="story-text">
+                Now, we are ready to level up. No longer just friends sharing memories and stories, but life partners. We are ready to tie the knot, step forward together, and face whatever the future holds as one solid team.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Love Gallery (Immediately following, continuous downwards) -->
+        <h2 class="sec-heading" style="margin-top: 50px;">Love Gallery</h2>
+        <div class="s4-gallery-wrap">
+          <img src="./assets/gallery_collage.png" class="s4-gallery-img" alt="Love Gallery">
+        </div>
+      </section>
+
+      <!-- Ribbon Divider -->
+      <div class="garland-divider">
+        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
+      </div>
+
+      <!-- SECTION: RSVP (JOYFULDAY FORMAT) -->
       <section class="sec-rsvp">
-        <h2 class="c-title">RSVP</h2>
+        <h2 class="sec-heading">RSVP</h2>
         <p class="rsvp-subtitle-text">
-          Dengan kerendahan hati kami meminta tolong untuk anda mengonfirmasi kehadiran melalui form RSVP di bawah ini
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
         </p>
 
         <!-- RSVP Form -->
@@ -1517,111 +1762,27 @@
 
       <!-- Ribbon Divider -->
       <div class="garland-divider">
-        <img src="./assets/p2_ribbon_banner.png" alt="" aria-hidden="true">
+        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- SECTION 5: WEDDING GIFT (TICKET ASSET 12.png) -->
-      <section class="sec-gift">
-        <h2 class="c-title">Wedding Gift</h2>
-
-        <!-- Connected Tickets Graphic with embedded text -->
-        <div class="gift-ticket-stage">
-          <img src="./assets/p2_gift_ticket_full.png" class="gift-ticket-bg" alt="Wedding Gift Tickets">
-
-          <!-- Top Ticket: Bank BCA -->
-          <div class="ticket-slot-1">
-            <span class="t-bank">BANK BCA</span>
-            <span class="t-num">8801234567</span>
-            <span class="t-holder">a.n. Clara Angeline</span>
-            <button type="button" class="btn-t-copy" onclick="copyToClipboard('8801234567', 'No. Rekening BCA berhasil disalin!')">
-              <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-              </svg>
-              <span>Salin Rekening</span>
-            </button>
-          </div>
-
-          <!-- Bottom Ticket: Bank Mandiri -->
-          <div class="ticket-slot-2">
-            <span class="t-bank">BANK MANDIRI</span>
-            <span class="t-num">1370012345678</span>
-            <span class="t-holder">a.n. Peter Suherman</span>
-            <button type="button" class="btn-t-copy" onclick="copyToClipboard('1370012345678', 'No. Rekening Mandiri berhasil disalin!')">
-              <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-              </svg>
-              <span>Salin Rekening</span>
-            </button>
-          </div>
-        </div>
-
-        <p class="gift-phys-note">
-          Anda juga bisa mengirimkan hadiah dalam bentuk fisik dengan mengonfirmasi ke kontrak berikut:
-        </p>
-        <a href="https://wa.me/6281234567890?text=Halo%20Clara%20dan%20Peter,%20saya%20ingin%20mengirimkan%20kado%20pernikahan" target="_blank" rel="noopener noreferrer" class="c-pill-btn">
-          Nomor WA
-        </a>
-      </section>
-
-      <!-- SECTION 6: DRESSCODE -->
-      <section class="sec-dresscode">
-        <h2 class="c-title">Dresscode</h2>
-        <p class="dresscode-desc">
-          Pakai pakaian ternyamanmu! Tapi kalau kamu punya outfit dengan sentuhan warna [warna tema], itu akan sangat menyempurnakan hari bahagia kami.
-        </p>
-        <img src="./assets/13.png" class="dresscode-img" alt="Dresscode sketch">
-        <p class="dresscode-colors-label">
-          Burgundy, Cokelat Muda, dan Krem.
-        </p>
-      </section>
-
-      <!-- SECTION 7: OUR LOVE STORY -->
-      <section class="sec-story">
-        <h2 class="c-title">Our Love Story</h2>
-
-        <div class="story-container">
-          <img src="./assets/14.png" class="story-line-asset" alt="" aria-hidden="true">
-
-          <div class="story-item">
-            <h3 class="story-item-title">How We Met</h3>
-            <p class="story-item-body">
-              It all started with a casual online interaction, with zero expectations. What began as simple chats about our daily routines slowly turned into the notifications we looked forward to the most.
-            </p>
-          </div>
-
-          <div class="story-item">
-            <h3 class="story-item-title">Our Journey</h3>
-            <p class="story-item-body">
-              Our connection flowed naturally. Through late-night conversations, swapping playlists, and supporting each other's goals, we found our comfort zone. We quickly realized that we had become each other's ultimate support system.
-            </p>
-          </div>
-
-          <div class="story-item" style="margin-bottom: 0;">
-            <h3 class="story-item-title">The Commitment</h3>
-            <p class="story-item-body">
-              Now, we are ready to level up. No longer just friends sharing screens and stories, but life partners. We are ready to tie the knot, step forward together, and face whatever the future holds as one solid team.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 8: LOVE GALLERY -->
-      <section class="sec-gallery">
-        <h2 class="c-title">Love Gallery</h2>
-        <img src="./assets/15.png" class="gallery-img" alt="Love Gallery">
-      </section>
-
-      <!-- SECTION 9: CLOSING -->
+      <!-- SECTION: CLOSING / FOOTER (SS CLOSING - FOOTER.png) -->
       <section class="sec-closing">
-        <img src="./assets/GIF_CLOSING.gif" class="closing-gif" alt="Closing animation">
-
-        <h2 class="closing-see-you">See You</h2>
-        <p class="closing-on">on</p>
-        <h3 class="closing-date">24/4/2027</h3>
-        <h1 class="closing-couple">Clara & Peter</h1>
-        <p class="closing-credit">Powered by joyever.id</p>
+        <div class="closing-layout">
+          <div class="closing-left">
+            <img src="./assets/sec1_sparkle_top_right.png" class="closing-star-top" alt="" aria-hidden="true">
+            <h2 class="closing-see-you">See You</h2>
+            <p class="closing-on">on</p>
+            <h3 class="closing-date">24/4/2027</h3>
+            <h1 class="closing-names">Clara & Peter</h1>
+            <p class="closing-powered">Powered by<br><span>joyever.id</span></p>
+            <div class="closing-hands-hearts">
+              <img src="./assets/groom_hand_cuff.png" class="closing-hand-groom" alt="">
+            </div>
+          </div>
+          <div class="closing-right">
+            <img src="./assets/photostrip.gif" class="closing-photostrip" alt="Photostrip">
+          </div>
+        </div>
       </section>
 
     </div>
@@ -1700,7 +1861,7 @@
       }
     }
 
-    // 3. Live Countdown: 191 : 06 : 06 : 35
+    // 3. Live Countdown matching Canva
     const targetDate = new Date('2027-04-24T09:00:00+07:00').getTime();
 
     function updateCountdown() {
@@ -1708,7 +1869,14 @@
       const distance = targetDate - now;
 
       if (distance <= 0) {
-        document.getElementById('countdownDigits').textContent = '00 : 00 : 00 : 00';
+        const elDays = document.getElementById('cdDays');
+        const elHours = document.getElementById('cdHours');
+        const elMinutes = document.getElementById('cdMinutes');
+        const elSeconds = document.getElementById('cdSeconds');
+        if (elDays) elDays.textContent = '00';
+        if (elHours) elHours.textContent = '00';
+        if (elMinutes) elMinutes.textContent = '00';
+        if (elSeconds) elSeconds.textContent = '00';
         return;
       }
 
@@ -1722,7 +1890,15 @@
       const mStr = String(minutes).padStart(2, '0');
       const sStr = String(seconds).padStart(2, '0');
 
-      document.getElementById('countdownDigits').textContent = `${dStr} : ${hStr} : ${mStr} : ${sStr}`;
+      const elDays = document.getElementById('cdDays');
+      const elHours = document.getElementById('cdHours');
+      const elMinutes = document.getElementById('cdMinutes');
+      const elSeconds = document.getElementById('cdSeconds');
+
+      if (elDays) elDays.textContent = dStr;
+      if (elHours) elHours.textContent = hStr;
+      if (elMinutes) elMinutes.textContent = mStr;
+      if (elSeconds) elSeconds.textContent = sStr;
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();

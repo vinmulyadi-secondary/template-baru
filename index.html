@@ -5,15 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Undangan Pernikahan - Clara & Peter</title>
   
-  <!-- Google Fonts: Montserrat for clean readable text -->
+  <!-- Google Fonts: Pangolin for authentic Canva handwriting descriptions -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 
   <style>
     @font-face {
       font-family: 'Hangyaboly';
       src: url('./fonts/hangyaboly.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Pangolin';
+      src: url('./fonts/pangolin.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -34,7 +42,7 @@
       --text-dark: #111111;
       --text-gray: #444444;
       --font-heading: 'Hangyaboly', cursive, sans-serif;
-      --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-body: 'Pangolin', cursive, sans-serif;
     }
 
     html, body {
@@ -305,83 +313,22 @@
     /* Ribbon Banner Divider across full width */
     .garland-divider {
       width: 100%;
-      margin: 20px 0 10px;
+      margin: 12px 0 6px;
+      padding: 0;
       pointer-events: none;
       user-select: none;
+      overflow: hidden;
+      display: block;
     }
     .garland-divider img {
       width: 100%;
       height: auto;
       display: block;
-    }
-
-    /* Typography */
-    .c-title {
-      font-family: var(--font-heading);
-      font-size: 36px;
-      color: var(--red-primary);
-      line-height: 1.15;
-      font-weight: normal;
-      text-align: center;
-      margin: 10px 0;
-    }
-    .c-subtitle {
-      font-family: var(--font-heading);
-      font-size: 16px;
-      color: var(--red-primary);
-      font-weight: normal;
-      text-align: center;
-      line-height: 1.25;
-    }
-    .c-names {
-      font-family: var(--font-heading);
-      font-size: 34px;
-      color: var(--red-primary);
-      font-weight: normal;
-      text-align: center;
-      margin: 8px 0;
-    }
-
-    /* Common Pill Button */
-    .c-pill-btn {
-      display: inline-block;
-      background-color: var(--red-pill);
-      color: #fff9e3;
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 6px 20px;
-      border-radius: 20px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(155, 54, 54, 0.3);
-      transition: all 0.2s ease;
-      letter-spacing: 0.3px;
-    }
-    .c-pill-btn:hover {
-      background-color: var(--red-primary);
-      transform: translateY(-1px);
     }
 
     /* ========================================================
        PAGE 2: INVITATION SECTIONS STYLING
        ======================================================== */
-    .garland-divider {
-      width: 100%;
-      max-width: 390px;
-      margin: 10px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .garland-divider img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
 
     .sec-heading {
       font-family: var(--font-heading);
@@ -786,9 +733,9 @@
     .s4-ticket-stage {
       position: relative;
       width: 100%;
-      max-width: 320px;
-      aspect-ratio: 845 / 892;
-      margin: 10px auto 16px;
+      max-width: 325px;
+      aspect-ratio: 797 / 843;
+      margin: 10px auto 18px;
     }
     .s4-ticket-bg {
       position: absolute;
@@ -801,71 +748,86 @@
     }
     .ticket-slot {
       position: absolute;
-      width: 66%;
-      height: 30%;
+      width: 76%;
+      left: 12%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      transform: rotate(-4.5deg);
+      transform: none;
     }
     .ticket-slot-top {
-      top: 17%;
-      left: 17%;
+      top: 13%;
+      height: 31%;
     }
     .ticket-slot-bottom {
-      top: 61%;
-      left: 21%;
+      top: 57%;
+      height: 31%;
     }
     .t-bank {
       font-family: var(--font-heading);
-      font-size: 16px;
+      font-size: 24px;
       color: var(--red-primary);
       margin-bottom: 2px;
+      font-weight: normal;
+      line-height: 1.1;
     }
     .t-acc-row {
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-bottom: 2px;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 3px;
     }
     .t-num {
       font-family: var(--font-body);
-      font-size: 13.5px;
+      font-size: 21px;
       font-weight: 700;
       color: #111111;
       letter-spacing: 0.5px;
+      line-height: 1;
     }
     .t-copy-btn {
-      background-color: var(--red-pill);
-      color: #fff9e3;
-      font-size: 9px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 10px;
+      background: none;
       border: none;
+      padding: 2px;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #111111;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      line-height: 1;
+    }
+    .t-copy-btn:hover {
+      transform: scale(1.15);
+      opacity: 0.75;
+    }
+    .t-copy-btn:active {
+      transform: scale(0.92);
     }
     .t-holder {
-      font-family: var(--font-body);
-      font-size: 10px;
-      color: #333333;
+      font-family: var(--font-heading);
+      font-size: 15px;
+      color: var(--red-primary);
+      font-weight: normal;
+      line-height: 1.1;
     }
     .s4-phys-note {
       font-family: var(--font-body);
-      font-size: 10.5px;
+      font-size: 11px;
       color: #222222;
-      line-height: 1.4;
-      max-width: 270px;
+      line-height: 1.45;
+      max-width: 275px;
       margin: 0 auto 10px;
     }
     .s4-dresscode-desc {
       font-family: var(--font-body);
-      font-size: 10.5px;
+      font-size: 11.5px;
       color: #222222;
-      line-height: 1.4;
-      max-width: 280px;
+      line-height: 1.45;
+      max-width: 285px;
       margin: 0 auto 12px;
     }
     .s4-dresscode-sketch {
@@ -874,69 +836,68 @@
       margin: 0 auto 12px;
       display: block;
     }
-    .s4-swatches-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      margin-bottom: 8px;
-    }
-    .swatch-dot {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      display: inline-block;
-    }
     .s4-swatches-label {
       font-family: var(--font-body);
-      font-size: 10.5px;
+      font-size: 11.5px;
       color: #222222;
       font-weight: 500;
     }
-    .s4-story-container {
-      position: relative;
+
+    /* Authentic Love Story Timeline (No Gepeng, Exact Canva Placement) */
+    .s4-timeline {
       width: 100%;
-      max-width: 320px;
-      margin: 15px auto 10px;
-      display: flex;
-      align-items: stretch;
-      text-align: left;
-      padding: 0 10px;
-    }
-    .story-line-col {
-      width: 24px;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      padding-top: 6px;
-    }
-    .story-line-asset {
-      width: 14px;
-      height: 98%;
-      object-fit: fill;
-    }
-    .story-content-col {
-      flex: 1;
-      padding-left: 12px;
+      max-width: 325px;
+      margin: 15px auto 25px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      text-align: left;
     }
-    .story-item {
-      margin-bottom: 22px;
+    .timeline-item {
+      display: flex;
+      position: relative;
     }
-    .story-title {
+    .timeline-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 22px;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .timeline-heart {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .timeline-line {
+      width: 0;
+      flex: 1;
+      border-left: 2px dashed #992835;
+      margin: 4px 0 2px;
+    }
+    .timeline-body {
+      flex: 1;
+      padding-bottom: 22px;
+    }
+    .timeline-item-last .timeline-body {
+      padding-bottom: 0;
+    }
+    .timeline-title {
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 26px;
       color: var(--red-primary);
-      margin-bottom: 4px;
       font-weight: normal;
+      line-height: 1.1;
+      margin-bottom: 5px;
     }
-    .story-text {
+    .timeline-text {
       font-family: var(--font-body);
-      font-size: 10.5px;
-      color: #222222;
+      font-size: 11.5px;
       line-height: 1.45;
+      color: #111111;
+      font-weight: 400;
     }
     .s4-gallery-wrap {
       width: 100%;
@@ -1186,96 +1147,20 @@
       word-break: break-word;
     }
 
-    /* CLOSING / FOOTER (SS CLOSING - FOOTER.png) */
+    /* CLOSING / FOOTER (SS CLOSING - FOOTER) */
     .sec-closing {
       position: relative;
       width: 100%;
-      padding: 20px 15px 50px;
-    }
-    .closing-layout {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 350px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .closing-left {
-      position: relative;
-      flex: 1;
-      text-align: left;
-      padding-left: 10px;
-    }
-    .closing-star-top {
-      position: absolute;
-      left: -8px;
-      top: -15px;
-      width: 28px;
-      pointer-events: none;
-    }
-    .closing-see-you {
-      font-family: var(--font-heading);
-      font-size: 26px;
-      color: var(--red-primary);
-      line-height: 1.1;
-      font-weight: normal;
-    }
-    .closing-on {
-      font-family: var(--font-body);
-      font-size: 11px;
-      color: #111111;
-      margin: 2px 0;
-    }
-    .closing-date {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      color: var(--red-primary);
-      margin-bottom: 8px;
-      font-weight: normal;
-    }
-    .closing-names {
-      font-family: var(--font-heading);
-      font-size: 28px;
-      color: var(--red-primary);
-      margin-bottom: 12px;
-      font-weight: normal;
-    }
-    .closing-powered {
-      font-family: var(--font-body);
-      font-size: 10px;
-      color: #666666;
-      line-height: 1.3;
-    }
-    .closing-powered span {
-      font-weight: 700;
-      color: #111111;
-    }
-    .closing-hands-hearts {
-      position: relative;
-      margin-top: 15px;
-      height: 50px;
-    }
-    .closing-hand-groom {
-      width: 80px;
-      height: auto;
-      position: absolute;
-      left: -15px;
-      bottom: 0;
-      pointer-events: none;
-    }
-    .closing-right {
-      width: 140px;
-      flex-shrink: 0;
+      padding: 0 0 35px;
       display: flex;
       justify-content: center;
+      background-color: var(--bg-cream);
     }
-    .closing-photostrip {
-      width: 125px;
+    .closing-img-full {
+      width: 100%;
+      max-width: 430px;
       height: auto;
-      transform: rotate(5deg);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      border-radius: 4px;
+      display: block;
     }
 
     /* Floating Music Toggle Button */
@@ -1577,22 +1462,32 @@
 
           <!-- Top Ticket: Bank BCA (Clara) -->
           <div class="ticket-slot ticket-slot-top">
-            <span class="t-bank">BANK BCA</span>
+            <span class="t-bank">Bank BCA</span>
             <div class="t-acc-row">
-              <span class="t-num">1234567890</span>
-              <button type="button" class="t-copy-btn" onclick="copyToClipboard('1234567890', 'No. Rekening BCA berhasil disalin!')">Salin</button>
+              <span class="t-num">129020410</span>
+              <button type="button" class="t-copy-btn" onclick="copyToClipboard('129020410', 'No. Rekening berhasil disalin!')" aria-label="Salin no rekening">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
             </div>
-            <span class="t-holder">a.n Clara Angeline</span>
+            <span class="t-holder">a/n Clara Angeline</span>
           </div>
 
-          <!-- Bottom Ticket: Bank Mandiri (Peter) -->
+          <!-- Bottom Ticket: Bank BCA (Peter) -->
           <div class="ticket-slot ticket-slot-bottom">
-            <span class="t-bank">BANK MANDIRI</span>
+            <span class="t-bank">Bank BCA</span>
             <div class="t-acc-row">
-              <span class="t-num">0987654321</span>
-              <button type="button" class="t-copy-btn" onclick="copyToClipboard('0987654321', 'No. Rekening Mandiri berhasil disalin!')">Salin</button>
+              <span class="t-num">129020410</span>
+              <button type="button" class="t-copy-btn" onclick="copyToClipboard('129020410', 'No. Rekening berhasil disalin!')" aria-label="Salin no rekening">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
             </div>
-            <span class="t-holder">a.n Peter Suherman</span>
+            <span class="t-holder">a/n Peter Suherman</span>
           </div>
         </div>
 
@@ -1616,27 +1511,44 @@
         <!-- PART 2: Our Love Story (Immediately following, continuous downwards) -->
         <h2 class="sec-heading" style="margin-top: 50px;">Our Love Story</h2>
 
-        <div class="s4-story-container">
-          <div class="story-line-col">
-            <img src="./assets/story_line.png" class="story-line-asset" alt="" aria-hidden="true">
-          </div>
-          <div class="story-content-col">
-            <div class="story-item">
-              <h3 class="story-title">How We Met</h3>
-              <p class="story-text">
+        <div class="s4-timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <img src="./assets/heart_marker.png" class="timeline-heart" alt="" aria-hidden="true">
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">How We Met</h3>
+              <p class="timeline-text">
                 It all started with a casual online interaction, with zero expectations. What began as simple chats about our daily routines slowly turned into the notifications we looked forward to the most.
               </p>
             </div>
-            <div class="story-item">
-              <h3 class="story-title">Our Journey</h3>
-              <p class="story-text">
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <img src="./assets/heart_marker.png" class="timeline-heart" alt="" aria-hidden="true">
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">Our Journey</h3>
+              <p class="timeline-text">
                 Our connection flowed naturally. Through late-night conversations, swapping playlists, and supporting each other's goals, we found our comfort zone. We quickly realized that we had become each other's ultimate support system.
               </p>
             </div>
-            <div class="story-item" style="margin-bottom: 0;">
-              <h3 class="story-title">The Commitment</h3>
-              <p class="story-text">
-                Now, we are ready to level up. No longer just friends sharing memories and stories, but life partners. We are ready to tie the knot, step forward together, and face whatever the future holds as one solid team.
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item timeline-item-last">
+            <div class="timeline-marker">
+              <img src="./assets/heart_marker.png" class="timeline-heart" alt="" aria-hidden="true">
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">The Commitment</h3>
+              <p class="timeline-text">
+                Now, we are ready to level up. No longer just friends sharing screens and stories, but life partners. We are ready to tie the knot, step forward together, and face whatever the future holds as one solid team.
               </p>
             </div>
           </div>
@@ -1765,24 +1677,9 @@
         <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- SECTION: CLOSING / FOOTER (SS CLOSING - FOOTER.png) -->
+      <!-- SECTION: CLOSING / FOOTER (SS CLOSING - FOOTER) -->
       <section class="sec-closing">
-        <div class="closing-layout">
-          <div class="closing-left">
-            <img src="./assets/sec1_sparkle_top_right.png" class="closing-star-top" alt="" aria-hidden="true">
-            <h2 class="closing-see-you">See You</h2>
-            <p class="closing-on">on</p>
-            <h3 class="closing-date">24/4/2027</h3>
-            <h1 class="closing-names">Clara & Peter</h1>
-            <p class="closing-powered">Powered by<br><span>joyever.id</span></p>
-            <div class="closing-hands-hearts">
-              <img src="./assets/groom_hand_cuff.png" class="closing-hand-groom" alt="">
-            </div>
-          </div>
-          <div class="closing-right">
-            <img src="./assets/photostrip.gif" class="closing-photostrip" alt="Photostrip">
-          </div>
-        </div>
+        <img src="./assets/closing_footer.png" class="closing-img-full" alt="See You on 24/4/2027 Clara & Peter">
       </section>
 
     </div>

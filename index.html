@@ -156,6 +156,32 @@
       85% { transform: rotate(-2deg) scale(0.98); }
     }
 
+    @keyframes loveWiggle {
+      0%, 100% { transform: translateX(-50%) rotate(0deg) scale(1); }
+      25% { transform: translateX(-50%) rotate(-3.5deg) scale(1.04); }
+      50% { transform: translateX(-50%) rotate(0deg) scale(0.98); }
+      75% { transform: translateX(-50%) rotate(3.5deg) scale(1.03); }
+    }
+
+    @keyframes heartWiggle1 {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-8deg) scale(1.15); }
+      50% { transform: rotate(0deg) scale(0.96); }
+      75% { transform: rotate(7deg) scale(1.12); }
+    }
+    @keyframes heartWiggle2 {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      28% { transform: rotate(8deg) scale(1.14); }
+      55% { transform: rotate(-4deg) scale(0.96); }
+      80% { transform: rotate(6deg) scale(1.1); }
+    }
+    @keyframes heartWiggle3 {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      22% { transform: rotate(-7deg) scale(1.12); }
+      50% { transform: rotate(5deg) scale(0.98); }
+      78% { transform: rotate(-4deg) scale(1.15); }
+    }
+
     .star-cluster {
       position: absolute;
       z-index: 2;
@@ -423,6 +449,8 @@
       top: 15px;
       width: 32px;
       pointer-events: none;
+      transform-origin: center center;
+      animation: starWiggle2 3.2s ease-in-out infinite;
     }
     .s2-peter-sparkle-bl {
       position: absolute;
@@ -430,6 +458,9 @@
       bottom: 95px;
       width: 28px;
       pointer-events: none;
+      transform-origin: center center;
+      animation: starWiggle3 2.8s ease-in-out infinite;
+      animation-delay: 0.4s;
     }
     .s2-clara-decor {
       position: absolute;
@@ -438,6 +469,8 @@
       transform: translateX(-50%);
       width: 260px;
       pointer-events: none;
+      transform-origin: center center;
+      animation: loveWiggle 3.6s ease-in-out infinite;
     }
     .s2-profile-name {
       font-family: var(--font-heading);
@@ -506,6 +539,7 @@
       font-weight: normal;
     }
     .s3-calendar-wrap {
+      position: relative;
       width: 100%;
       max-width: 375px;
       margin: 8px auto 14px;
@@ -514,6 +548,30 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+    .s3-star-cluster {
+      position: absolute;
+      transform-origin: center center;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .s3-star-cluster img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .s3-star-left {
+      left: 10.47%;
+      top: 5.34%;
+      width: 13.62%;
+      animation: starWiggle1 3.0s ease-in-out infinite;
+    }
+    .s3-star-right {
+      left: 76.57%;
+      top: 2.99%;
+      width: 14.64%;
+      animation: starWiggle2 3.4s ease-in-out infinite;
+      animation-delay: 0.5s;
     }
     .s3-countdown {
       margin: 10px auto 16px;
@@ -738,71 +796,228 @@
       font-weight: 500;
     }
 
-    /* Authentic Love Story Timeline (No Gepeng, Exact Canva Placement) */
-    .s4-timeline {
-      width: 100%;
-      max-width: 325px;
-      margin: 15px auto 25px;
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-    }
-    .timeline-item {
-      display: flex;
+    /* Authentic Love Story (From LOVE STORY.png + 3 Wiggling Hearts) */
+    .s4-love-story-stage {
       position: relative;
-    }
-    .timeline-marker {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 22px;
-      flex-shrink: 0;
-      margin-right: 12px;
-    }
-    .timeline-heart {
-      width: 16px;
-      height: 16px;
-      object-fit: contain;
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-    .timeline-line {
-      width: 0;
-      flex: 1;
-      border-left: 2px dashed #992835;
-      margin: 4px 0 2px;
-    }
-    .timeline-body {
-      flex: 1;
-      padding-bottom: 22px;
-    }
-    .timeline-item-last .timeline-body {
-      padding-bottom: 0;
-    }
-    .timeline-title {
-      font-family: var(--font-heading);
-      font-size: 26px;
-      color: var(--red-primary);
-      font-weight: normal;
-      line-height: 1.1;
-      margin-bottom: 5px;
-    }
-    .timeline-text {
-      font-family: var(--font-body);
-      font-size: 11.5px;
-      line-height: 1.45;
-      color: #111111;
-      font-weight: 400;
-    }
-    .s4-gallery-wrap {
       width: 100%;
-      max-width: 360px;
-      margin: 10px auto;
+      max-width: 375px;
+      margin: 15px auto 25px;
+    }
+    .s4-love-story-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ls-heart-cluster {
+      position: absolute;
+      transform-origin: center center;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .ls-heart-cluster img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ls-heart-1 {
+      left: 18.74%;
+      top: 21.12%;
+      width: 3.29%;
+      animation: heartWiggle1 2.8s ease-in-out infinite;
+    }
+    .ls-heart-2 {
+      left: 18.74%;
+      top: 43.03%;
+      width: 3.29%;
+      animation: heartWiggle2 3.2s ease-in-out infinite;
+      animation-delay: 0.4s;
+    }
+    .ls-heart-3 {
+      left: 18.74%;
+      top: 65.01%;
+      width: 3.29%;
+      animation: heartWiggle3 2.9s ease-in-out infinite;
+      animation-delay: 0.8s;
+    }
+
+    /* OUR GALLERY (from CANVA OUR GALLERY.png + Clickable Cards) */
+    .s4-gallery-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      margin: 12px auto 0;
+      border-radius: 18px;
+      overflow: hidden;
     }
     .s4-gallery-img {
       width: 100%;
       height: auto;
       display: block;
+    }
+    .gallery-card-hotspot {
+      position: absolute;
+      cursor: pointer;
+      z-index: 5;
+      border-radius: 14px;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .gallery-card-hotspot:active {
+      transform: scale(0.975);
+    }
+    .gallery-card-hotspot:hover {
+      box-shadow: 0 0 0 3px rgba(153, 40, 53, 0.4);
+    }
+
+    /* Fullscreen Card Gallery Modal Lightbox */
+    .gallery-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100dvh;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .gallery-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .gallery-modal-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(18, 14, 14, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .gallery-modal-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 420px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: modalScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalScaleIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .gallery-modal-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .gallery-modal-counter {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .gallery-modal-close {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .gallery-modal-close:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .gallery-modal-slider {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-slide-wrap {
+      max-width: 90vw;
+      max-height: 72dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+      touch-action: pan-y pinch-zoom;
+    }
+    .gallery-modal-img {
+      width: 100%;
+      max-height: 72dvh;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .gallery-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      color: #111111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      z-index: 10;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .gallery-nav-btn:active {
+      transform: translateY(-50%) scale(0.92);
+    }
+    .gallery-prev {
+      left: -6px;
+    }
+    .gallery-next {
+      right: -6px;
+    }
+    .gallery-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .gallery-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .gallery-dot.active {
+      background: #FFFFFF;
+      transform: scale(1.3);
     }
 
     /* RSVP STYLING */
@@ -1042,7 +1257,7 @@
       word-break: break-word;
     }
 
-    /* CLOSING / FOOTER (CLOSING.png + GIF CLOSING.gif) */
+    /* CLOSING / FOOTER (CLOSING.png) */
     .sec-closing {
       position: relative;
       width: 100%;
@@ -1064,15 +1279,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      pointer-events: none;
-    }
-    .closing-photostrip-overlay {
-      position: absolute;
-      left: 51.24%;
-      top: 11.7%;
-      width: 48.75%;
-      height: 88.3%;
       object-fit: contain;
       pointer-events: none;
     }
@@ -1255,14 +1461,14 @@
 
       <!-- SECTION 3: SAVE THE DATE (SS SECTION 3.png) -->
       <section class="sec-3">
-        <div class="s3-header">
-          <img src="./assets/stars_trio.png" class="s3-stars-l" alt="" aria-hidden="true">
-          <h2 class="s3-title">Save The<br>Date!</h2>
-          <img src="./assets/stars_trio.png" class="s3-stars-r" alt="" aria-hidden="true">
-        </div>
-
         <div class="s3-calendar-wrap">
-          <img src="./assets/calendar_strip.png" class="s3-calendar-img" alt="Calendar 23 24 25">
+          <img src="./assets/save_the_date_base.png" class="s3-calendar-img" alt="Save The Date!">
+          <div class="s3-star-cluster s3-star-left">
+            <img src="./assets/s3_stars_left.png" alt="" aria-hidden="true">
+          </div>
+          <div class="s3-star-cluster s3-star-right">
+            <img src="./assets/s3_stars_right.png" alt="" aria-hidden="true">
+          </div>
         </div>
 
         <!-- Countdown matching Canva -->
@@ -1388,53 +1594,32 @@
         <!-- PART 2: Our Love Story (Immediately following, continuous downwards) -->
         <h2 class="sec-heading" style="margin-top: 50px;">Our Love Story</h2>
 
-        <div class="s4-timeline">
-          <!-- Item 1 -->
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <img src="./assets/heart_marker.png" class="timeline-heart" alt="" aria-hidden="true">
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-body">
-              <h3 class="timeline-title">How We Met</h3>
-              <p class="timeline-text">
-                It all started with a casual online interaction, with zero expectations. What began as simple chats about our daily routines slowly turned into the notifications we looked forward to the most.
-              </p>
-            </div>
+        <div class="s4-love-story-stage">
+          <img src="./assets/love_story_base.png" class="s4-love-story-img" alt="Our Love Story">
+          <!-- 3 Wiggling Red Hearts -->
+          <div class="ls-heart-cluster ls-heart-1">
+            <img src="./assets/love_heart_marker.png" alt="" aria-hidden="true">
           </div>
-
-          <!-- Item 2 -->
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <img src="./assets/heart_marker.png" class="timeline-heart" alt="" aria-hidden="true">
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-body">
-              <h3 class="timeline-title">Our Journey</h3>
-              <p class="timeline-text">
-                Our connection flowed naturally. Through late-night conversations, swapping playlists, and supporting each other's goals, we found our comfort zone. We quickly realized that we had become each other's ultimate support system.
-              </p>
-            </div>
+          <div class="ls-heart-cluster ls-heart-2">
+            <img src="./assets/love_heart_marker.png" alt="" aria-hidden="true">
           </div>
-
-          <!-- Item 3 -->
-          <div class="timeline-item timeline-item-last">
-            <div class="timeline-marker">
-              <img src="./assets/heart_marker.png" class="timeline-heart" alt="" aria-hidden="true">
-            </div>
-            <div class="timeline-body">
-              <h3 class="timeline-title">The Commitment</h3>
-              <p class="timeline-text">
-                Now, we are ready to level up. No longer just friends sharing screens and stories, but life partners. We are ready to tie the knot, step forward together, and face whatever the future holds as one solid team.
-              </p>
-            </div>
+          <div class="ls-heart-cluster ls-heart-3">
+            <img src="./assets/love_heart_marker.png" alt="" aria-hidden="true">
           </div>
         </div>
 
         <!-- Love Gallery (Immediately following, continuous downwards) -->
         <h2 class="sec-heading" style="margin-top: 50px;">Love Gallery</h2>
         <div class="s4-gallery-wrap">
-          <img src="./assets/gallery_collage.png" class="s4-gallery-img" alt="Love Gallery">
+          <img src="./assets/our_gallery.png" class="s4-gallery-img" alt="Love Gallery">
+          <!-- 7 Clickable Hotspot Cards -->
+          <div class="gallery-card-hotspot" onclick="openGalleryModal(0)" style="left: 15.15%; top: 8.01%; width: 71.38%; height: 31.43%;" role="button" tabindex="0" aria-label="Lihat Foto 1"></div>
+          <div class="gallery-card-hotspot" onclick="openGalleryModal(1)" style="left: 15.15%; top: 42.40%; width: 42.39%; height: 23.60%;" role="button" tabindex="0" aria-label="Lihat Foto 2"></div>
+          <div class="gallery-card-hotspot" onclick="openGalleryModal(2)" style="left: 61.71%; top: 42.40%; width: 22.69%; height: 11.08%;" role="button" tabindex="0" aria-label="Lihat Foto 3"></div>
+          <div class="gallery-card-hotspot" onclick="openGalleryModal(3)" style="left: 61.71%; top: 54.88%; width: 22.69%; height: 11.12%;" role="button" tabindex="0" aria-label="Lihat Foto 4"></div>
+          <div class="gallery-card-hotspot" onclick="openGalleryModal(4)" style="left: 15.08%; top: 67.39%; width: 22.77%; height: 11.12%;" role="button" tabindex="0" aria-label="Lihat Foto 5"></div>
+          <div class="gallery-card-hotspot" onclick="openGalleryModal(5)" style="left: 15.08%; top: 79.91%; width: 22.77%; height: 11.12%;" role="button" tabindex="0" aria-label="Lihat Foto 6"></div>
+          <div class="gallery-card-hotspot" onclick="openGalleryModal(6)" style="left: 42.02%; top: 67.39%; width: 42.39%; height: 23.63%;" role="button" tabindex="0" aria-label="Lihat Foto 7"></div>
         </div>
       </section>
 
@@ -1554,14 +1739,46 @@
         <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- SECTION: CLOSING / FOOTER (CLOSING.png + GIF CLOSING.gif) -->
+      <!-- SECTION: CLOSING / FOOTER (CLOSING.png) -->
       <section class="sec-closing">
         <div class="closing-stage">
           <img src="./assets/closing.png" class="closing-base-img" alt="See You Clara & Peter">
-          <img src="./assets/closing_photostrip.gif" class="closing-photostrip-overlay" alt="Photostrip">
         </div>
       </section>
 
+    </div>
+  </div>
+
+  <!-- Fullscreen Card Gallery Modal Lightbox -->
+  <div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Photo Gallery Modal">
+    <div class="gallery-modal-backdrop" onclick="closeGalleryModal()"></div>
+    <div class="gallery-modal-content">
+      <div class="gallery-modal-top">
+        <div class="gallery-modal-counter" id="galleryCounter">1 / 7</div>
+        <button class="gallery-modal-close" onclick="closeGalleryModal()" aria-label="Tutup Gallery">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="gallery-modal-slider">
+        <button class="gallery-nav-btn gallery-prev" onclick="changeGalleryPhoto(-1)" aria-label="Foto Sebelumnya">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.6" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="gallery-slide-wrap" id="gallerySlideWrap">
+          <img src="./assets/gallery_card_1.png" class="gallery-modal-img" id="galleryActiveImg" alt="Gallery Photo Preview">
+        </div>
+        <button class="gallery-nav-btn gallery-next" onclick="changeGalleryPhoto(1)" aria-label="Foto Selanjutnya">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.6" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+      <div class="gallery-dots" id="galleryDots">
+        <span class="gallery-dot active" onclick="jumpToGalleryPhoto(0)"></span>
+        <span class="gallery-dot" onclick="jumpToGalleryPhoto(1)"></span>
+        <span class="gallery-dot" onclick="jumpToGalleryPhoto(2)"></span>
+        <span class="gallery-dot" onclick="jumpToGalleryPhoto(3)"></span>
+        <span class="gallery-dot" onclick="jumpToGalleryPhoto(4)"></span>
+        <span class="gallery-dot" onclick="jumpToGalleryPhoto(5)"></span>
+        <span class="gallery-dot" onclick="jumpToGalleryPhoto(6)"></span>
+      </div>
     </div>
   </div>
 
@@ -1888,6 +2105,94 @@
         }[tag] || tag)
       );
     }
+
+    // 6. Gallery Lightbox Modal
+    const galleryPhotos = [
+      './assets/gallery_card_1.png',
+      './assets/gallery_card_2.png',
+      './assets/gallery_card_3.png',
+      './assets/gallery_card_4.png',
+      './assets/gallery_card_5.png',
+      './assets/gallery_card_6.png',
+      './assets/gallery_card_7.png'
+    ];
+    let currentGalleryIndex = 0;
+
+    function openGalleryModal(index) {
+      currentGalleryIndex = (index >= 0 && index < galleryPhotos.length) ? index : 0;
+      updateGalleryView();
+      const modal = document.getElementById('galleryModal');
+      if (modal) {
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeGalleryModal() {
+      const modal = document.getElementById('galleryModal');
+      if (modal) {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function changeGalleryPhoto(direction) {
+      currentGalleryIndex = (currentGalleryIndex + direction + galleryPhotos.length) % galleryPhotos.length;
+      updateGalleryView();
+    }
+
+    function jumpToGalleryPhoto(idx) {
+      currentGalleryIndex = idx;
+      updateGalleryView();
+    }
+
+    function updateGalleryView() {
+      const img = document.getElementById('galleryActiveImg');
+      const counter = document.getElementById('galleryCounter');
+      const dots = document.querySelectorAll('.gallery-dot');
+      if (img) {
+        img.style.opacity = '0';
+        img.style.transform = 'scale(0.96)';
+        setTimeout(() => {
+          img.src = galleryPhotos[currentGalleryIndex];
+          img.style.opacity = '1';
+          img.style.transform = 'scale(1)';
+        }, 120);
+      }
+      if (counter) {
+        counter.textContent = `${currentGalleryIndex + 1} / ${galleryPhotos.length}`;
+      }
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentGalleryIndex);
+      });
+    }
+
+    // Touch swipe support for gallery modal
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const slideWrap = document.getElementById('gallerySlideWrap');
+    if (slideWrap) {
+      slideWrap.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      slideWrap.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > 40) {
+          if (diff < 0) changeGalleryPhoto(1);
+          else changeGalleryPhoto(-1);
+        }
+      }, { passive: true });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('galleryModal');
+      if (modal && modal.classList.contains('is-open')) {
+        if (e.key === 'Escape') closeGalleryModal();
+        else if (e.key === 'ArrowRight') changeGalleryPhoto(1);
+        else if (e.key === 'ArrowLeft') changeGalleryPhoto(-1);
+      }
+    });
 
     // Initialize
     loadWishes();

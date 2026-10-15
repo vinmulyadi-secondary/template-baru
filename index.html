@@ -360,142 +360,37 @@
       background-color: var(--red-primary);
     }
 
-    /* SECTION 1: INVITATION, HANDS, BIBLE, MUSIC */
-    .sec-1 {
+    /* SECTION 1: CANVA SECTION 1 LOOK WITH MUSIC PLAYER */
+    .sec-1-stage {
       position: relative;
       width: 100%;
-      padding: 5px 15px 25px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      aspect-ratio: 1366 / 2575;
+      margin: 0 auto;
     }
-    .s1-sparkle-tl {
+    .sec-1-bg {
       position: absolute;
-      left: 20px;
-      top: 65px;
-      width: 44px;
-      pointer-events: none;
-    }
-    .s1-sparkle-tr {
-      position: absolute;
-      right: 25px;
-      top: 65px;
-      width: 30px;
-      pointer-events: none;
-    }
-    .s1-invited {
-      font-family: var(--font-heading);
-      font-size: 36px;
-      color: var(--red-primary);
-      margin: 15px 0 10px;
-      font-weight: normal;
-    }
-    .s1-hands-stage {
-      position: relative;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 140px;
-      margin: 10px 0 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .s1-hand-l {
-      position: absolute;
-      left: -15px;
-      top: 10px;
-      width: 135px;
+      height: 100%;
+      object-fit: contain;
       pointer-events: none;
     }
-    .s1-hand-r {
+    .sec-1-music-box {
       position: absolute;
-      right: -15px;
-      top: 18px;
-      width: 130px;
-      pointer-events: none;
-    }
-    .s1-hands-center {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: var(--font-heading);
-      color: var(--red-primary);
-      line-height: 1.15;
-    }
-    .s1-to {
-      font-size: 18px;
-    }
-    .s1-wedding {
-      font-size: 18px;
-    }
-    .s1-names-wrap {
-      position: relative;
-      display: inline-block;
-      margin: 5px auto 16px;
-    }
-    .s1-names {
-      font-family: var(--font-heading);
-      font-size: 38px;
-      color: var(--red-primary);
-      font-weight: normal;
-      white-space: nowrap;
-    }
-    .s1-sparkle-mr {
-      position: absolute;
-      right: -42px;
-      top: -3px;
-      width: 32px;
-      pointer-events: none;
-    }
-    .s1-verse-wrap {
-      position: relative;
-      max-width: 270px;
-      margin: 0 auto 20px;
-      padding: 0 5px;
-    }
-    .s1-sparkle-vl {
-      position: absolute;
-      left: -38px;
-      top: 10px;
-      width: 26px;
-      pointer-events: none;
-    }
-    .s1-verse-text {
-      font-family: var(--font-body);
-      font-size: 10.5px;
-      line-height: 1.35;
-      color: #111111;
-      font-weight: 400;
-    }
-    .s1-verse-ref {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 600;
-      color: #111111;
-      margin-top: 6px;
-    }
-    .s1-music-box {
+      top: 64.8%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 63%;
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 5px;
+      z-index: 5;
     }
-    .s1-music-gif {
-      width: 250px;
+    .sec-1-music-gif {
+      width: 100%;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
-    .s1-music-cap {
-      font-family: var(--font-body);
-      font-size: 14px;
-      color: #111111;
-      margin-top: 8px;
-      font-weight: 500;
-      letter-spacing: 0.2px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      display: block;
     }
 
     /* SECTION 2: BRIDE & GROOM */
@@ -1147,7 +1042,7 @@
       word-break: break-word;
     }
 
-    /* CLOSING / FOOTER (SS CLOSING - FOOTER) */
+    /* CLOSING / FOOTER (CLOSING.png + GIF CLOSING.gif) */
     .sec-closing {
       position: relative;
       width: 100%;
@@ -1156,11 +1051,30 @@
       justify-content: center;
       background-color: var(--bg-cream);
     }
-    .closing-img-full {
+    .closing-stage {
+      position: relative;
       width: 100%;
       max-width: 430px;
-      height: auto;
-      display: block;
+      aspect-ratio: 1366 / 1333;
+      margin: 0 auto;
+    }
+    .closing-base-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+    .closing-photostrip-overlay {
+      position: absolute;
+      left: 51.24%;
+      top: 11.7%;
+      width: 48.75%;
+      height: 88.3%;
+      object-fit: contain;
+      pointer-events: none;
     }
 
     /* Floating Music Toggle Button */
@@ -1290,50 +1204,13 @@
          ========================================== -->
     <div class="invitation-frame" id="invitationContent">
 
-      <!-- Top Garland Ribbon -->
-      <div class="garland-divider" style="margin-top: 5px;">
-        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
-      </div>
-
-      <!-- SECTION 1: INVITATION, HANDS, BIBLE, MUSIC (SS SECTION 1.png) -->
-      <section class="sec-1">
-        <img src="./assets/sec1_sparkle_top_left.png" class="s1-sparkle-tl" alt="" aria-hidden="true">
-        <img src="./assets/sec1_sparkle_top_right.png" class="s1-sparkle-tr" alt="" aria-hidden="true">
-
-        <h2 class="s1-invited">you are invited!</h2>
-
-        <div class="s1-hands-stage">
-          <img src="./assets/groom_hand_cuff.png" class="s1-hand-l" alt="">
-          <div class="s1-hands-center">
-            <span class="s1-to">to</span>
-            <span class="s1-wedding">the wedding of</span>
-          </div>
-          <img src="./assets/bride_hand_ring.png" class="s1-hand-r" alt="">
-        </div>
-
-        <div class="s1-names-wrap">
-          <h1 class="s1-names">Clara & Peter</h1>
-          <img src="./assets/sec1_sparkle_mid_right.png" class="s1-sparkle-mr" alt="" aria-hidden="true">
-        </div>
-
-        <div class="s1-verse-wrap">
-          <img src="./assets/sec1_sparkle_verse_left.png" class="s1-sparkle-vl" alt="" aria-hidden="true">
-          <p class="s1-verse-text">
-            "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
-          </p>
-          <p class="s1-verse-ref">Matius 19:6</p>
-        </div>
-
-        <div class="s1-music-box" onclick="toggleAudio()">
-          <img src="./assets/music_player.gif" class="s1-music-gif" alt="Music player">
-          <p class="s1-music-cap" id="musicStatusCaption">click to play music</p>
+      <!-- SECTION 1 (CANVA SECTION 1 LOOK) -->
+      <section class="sec-1-stage">
+        <img src="./assets/section_1_look.png" class="sec-1-bg" alt="You are invited to the wedding of Clara & Peter">
+        <div class="sec-1-music-box" onclick="toggleAudio()" title="Click to play / pause music">
+          <img src="./assets/music_player.gif" class="sec-1-music-gif" alt="Music player">
         </div>
       </section>
-
-      <!-- Ribbon Divider -->
-      <div class="garland-divider">
-        <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
-      </div>
 
       <!-- SECTION 2: BRIDE & GROOM (SS SECTION 2.png) -->
       <section class="sec-2">
@@ -1677,9 +1554,12 @@
         <img src="./assets/ribbon_garland.png" alt="" aria-hidden="true">
       </div>
 
-      <!-- SECTION: CLOSING / FOOTER (SS CLOSING - FOOTER) -->
+      <!-- SECTION: CLOSING / FOOTER (CLOSING.png + GIF CLOSING.gif) -->
       <section class="sec-closing">
-        <img src="./assets/closing_footer.png" class="closing-img-full" alt="See You on 24/4/2027 Clara & Peter">
+        <div class="closing-stage">
+          <img src="./assets/closing.png" class="closing-base-img" alt="See You Clara & Peter">
+          <img src="./assets/closing_photostrip.gif" class="closing-photostrip-overlay" alt="Photostrip">
+        </div>
       </section>
 
     </div>

@@ -438,6 +438,26 @@
       color: var(--red-primary);
     }
 
+    /* DEAR, GUEST DI ATAS "YOU ARE INVITED!" */
+    .s1-dear-guest {
+      position: absolute;
+      top: 18.5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 6vw, 30px);
+      color: #bb2c3e;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      pointer-events: none;
+      z-index: 5;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+      margin: 0;
+      padding: 0;
+    }
+
     .s1-star-cluster {
       position: absolute;
       transform-origin: center center;
@@ -1496,6 +1516,9 @@
       <section class="sec-1-stage">
         <img src="./assets/section_1_look.png" class="sec-1-bg" alt="You are invited to the wedding of Clara & Peter">
 
+        <!-- Dear, Guest di atas tulisan "you are invited!" -->
+        <h2 class="s1-dear-guest" id="s1DearGuest">Dear, Guest</h2>
+
         <!-- 4 Wiggling Star Clusters in Section 1 -->
         <div class="s1-star-cluster s1-star-tl">
           <img src="./assets/s1_stars_tl.png" alt="" aria-hidden="true">
@@ -2393,6 +2416,20 @@
         else if (e.key === 'ArrowLeft') changeGalleryPhoto(-1);
       }
     });
+
+    // Initialize guest greeting
+    (function initGuestGreeting() {
+      try {
+        const p = new URLSearchParams(window.location.search);
+        const guest = p.get('to') || p.get('guest') || p.get('name') || p.get('c');
+        if (guest && guest.trim()) {
+          const el = document.getElementById('s1DearGuest');
+          if (el) el.textContent = `Dear, ${guest.trim()}`;
+        }
+      } catch (e) {
+        // ignore
+      }
+    })();
 
     // Initialize
     loadWishes();
